@@ -7,3 +7,8 @@ function login()
 {
   alert("login")
 }
+
+function logout()
+{
+  alert("logout")
+}
