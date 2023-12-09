@@ -34,7 +34,10 @@
     <div class="input">Password : <input type="password" id="password" value="a10" size="32"></div>
     <div class="input">AuthPass : <input type="text" id="token" placeholder="Token String" size="32"></div>
     <input class="button" type="submit " id="login_id" value="login"></div>
+    <input class="button" type="submit " id="show_result_id" value="show result"></div>
     <script>document.write(Date());</script>
+
+    <div class="output1">Password : <input type="text" id="password"></div>
 
     <div class="output1">Password : <input type="text" id="password"></div>
     <div class="output2">Full Response: <input type="text" class="output2" id="response" size="170"></div>
@@ -49,8 +52,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login_id')
           .addEventListener('click', login);
-  document.getElementById('login_out')
-          .addEventListener('click', logout);
+  document.getElementById('show_result_id')
+          .addEventListener('click', show_result("Hello World... Hello World..."));
   });
 </script>
 
