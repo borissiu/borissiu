@@ -1,3 +1,4 @@
-function f1() {
+function f1()
+{
   alert("Hi Hi")
 }
