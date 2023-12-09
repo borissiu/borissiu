@@ -1,4 +1,4 @@
 function f1()
 {
-  alert("Hi Hi")
+  location.href = 'hactl-menu.html';
 }
