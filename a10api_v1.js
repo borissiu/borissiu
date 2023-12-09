@@ -15,6 +15,6 @@ function logout()
 
 function show_result()
 {
-  var div = document.getElementById("output2");
-  div.innerHTML = "Hello World......";
+  var st = document.getElementById("output2");
+  st.innerHTML = "Hello World......";
 }
