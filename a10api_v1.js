@@ -20,7 +20,5 @@ function show_result(result)
   var text = document.createElement("textarea");
   text.appendChild(document.createTextNode(result));
   
-  div.appendChild(text);
-
   document.getElementById("output2").focus()
 }
