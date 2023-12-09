@@ -16,7 +16,5 @@ function logout()
 function show_result()
 {
   var div = document.getElementById("output2");
-  
-  var text = document.createElement("textarea");
-  text.appendChild(document.createTextNode("Hello World..............."));
+  div.innerHTML = "Hello World......";
 }
