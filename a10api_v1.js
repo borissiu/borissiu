@@ -13,10 +13,10 @@ function logout()
   alert("logout...")
 }
 
-function show_result(result)
+function show_result()
 {
   var div = document.getElementById("output2");
   
   var text = document.createElement("textarea");
-  text.appendChild(document.createTextNode(result));
+  text.appendChild(document.createTextNode("Hello World..............."));
 }
