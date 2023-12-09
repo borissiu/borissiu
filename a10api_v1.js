@@ -5,10 +5,10 @@ function f1()
 
 function login()
 {
-  alert("login")
+  alert("login...")
 }
 
 function logout()
 {
-  alert("logout")
+  alert("logout...")
 }
