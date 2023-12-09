@@ -19,6 +19,4 @@ function show_result(result)
   
   var text = document.createElement("textarea");
   text.appendChild(document.createTextNode(result));
-  
-  document.getElementById("output2").focus()
 }
