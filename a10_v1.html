@@ -44,10 +44,13 @@
     <div class="notes ">PS : Does't work for VCS Master... Enter this "Th3030s-1-Active-vBlade[1/1]#vcs vmaster-take-over 220 " on slave to takevover...devcall toggle_a10support_login(0)</div>
 </div>
 
-<script>
-  login.addEventListener('click', alert('login...'));
+<script nonce="static-page">
+  "use strict";
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login')
+            .addEventListener('click', login);
+  });
 </script>
-
 
 </body>
 </html>
