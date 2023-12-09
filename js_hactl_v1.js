@@ -1,4 +1,4 @@
 function f1()
 {
-  location.href = 'hactl-menu.html';
+  location.href = 'https://www.google.com';
 }
