@@ -3,12 +3,12 @@ function f1()
   location.href = 'https://www.google.com';
 }
 
-function login1()
+function login()
 {
   alert("login")
 }
 
-function logout1()
+function logout()
 {
   alert("logout")
 }
