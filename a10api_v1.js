@@ -15,7 +15,7 @@ function login()
 function buttonA()
 {
   const UIdeviceStatus = document.querySelector('#deviceStatus');
-  UIdeviceStatus.value = "Hostname: " + hostname + ' ' + haStatus + ', ' + Date();
+  UIdeviceStatus.value = "Hostname: " + hostname + ' ' + haStatus + ',          ' + Date();
 }
 
 function show_result()
