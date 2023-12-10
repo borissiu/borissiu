@@ -7,7 +7,7 @@ function new_http_request()
     alert('Please logon...');
     return;
   }
-  
+
   var xmlhttp = null;
   xmlhttp = new XMLHttpRequest();
   return xmlhttp;
@@ -19,7 +19,6 @@ function get(xmlhttp, auth, url)
   xmlhttp.setRequestHeader("Authorization", auth);
   xmlhttp.send();
   return xmlhttp.responseText;
-
 }
 
 function post(xmlhttp, auth, url, json)
@@ -39,7 +38,7 @@ function login()
 {
   auth = "";
   var url = '/axapi/v3/auth';
-  var msg = "{\"credentials\": {\"username\": \"admin\", \"password\": \"a10\"}}";
+  var msg = "{\"credentials\": {\"username\": \"" + document.getElementById('username').value + "\", \"password\": " + "\"" + document.getElementById('password').value + "\"}}";
   var response = "";
 
   var xmlhttp = new_http_request();
@@ -47,11 +46,9 @@ function login()
 
   var json = JSON.parse(response);
   auth = "A10 " + json.authresponse.signature;
-
   var token = document.getElementById("token");
   token.setAttribute("placeholder", auth);
 
-  xmlhttp = new_http_request();
   response = get(xmlhttp, auth, '/axapi/v3/vrrp-a/vrid/0/oper');
   json_response = JSON.parse(response);
   device_state = json_response["vrid"]["oper"]["state"];
