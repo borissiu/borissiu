@@ -24,6 +24,6 @@ function buttonB()
 
 function button99()
 {
-  location.href = 'https://www.google.com';
+  location.href = 'a10_menu_v1.html';
 }
 

@@ -7,11 +7,12 @@
   <title>A10-Demo</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
-  <script src="https://faq.a10hk.com/a10api_v1.js"></script>
+  <!-- <script src="https://faq.a10hk.com/a10api_v1.js"></script> -->
+  <script src=/Users/boris/Data/GitHub/borissiu/a10api_v1.js></script>
 </head>
 
 <style>
-  h1, h2, h3, h4, h5, h6{
+  h1, h2, h3, h4, h5, h6 {
     margin-top:10px; margin-bottom:0px;
   }
   .container {
@@ -35,7 +36,7 @@
     <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
     <input class="button" type="submit " id="buttonA" value="A. Switch from Cluster1 to Cluster2 (enable Cluster2 and ForcedOffline Clusert1)">
     <input class="button" type="submit " id="buttonB" value="B. Switch from Cluster2 to Cluster1 (enable Cluster1 and ForceOffline Clusert2)">
-    <input class="button" type="submit " id="buttonS" value="S. Show Loadbalancer status and Cargo-SVC Pool status">
+    <input class="button" type="submit " id="buttonS" value="S. Show LB status and Cargo Pool status">
     <input class="button" type="submit " id="button99" value="99. Logout & Back to Main Menu">
 
     <div>Device Status : <input type="text" id="deviceStatus" size="100"></div>
@@ -58,7 +59,6 @@ text2.appendChild(document.createTextNode(msg));
 output2.appendChild(text2);
 text2.style.width = 60 + 'em';
 text2.style.height = text2.scrollHeight + 'px';
-
 
 let output3 = document.getElementById('output3');
 let text3 = document.createElement('textarea');
