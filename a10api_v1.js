@@ -13,21 +13,9 @@ function login()
 
 function buttonA()
 {
-  document.getElementById('deviceStatus').innerHTML = Date();
+  const UIdeviceStatus = document.querySelector('#deviceStatus');
+  UIdeviceStatus.value = "Hostname:" + Date();
 }
-function buttonB()
-{
-  document.getElementById('deviceStatus').innerHTML = Date();
-}
-function buttonS()
-{
-  document.getElementById('deviceStatus').innerHTML = Date();
-}
-function button99()
-{
-  document.getElementById('deviceStatus').innerHTML = Date();
-}
-
 
 function show_result()
 {
