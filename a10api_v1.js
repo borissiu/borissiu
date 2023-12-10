@@ -5,15 +5,9 @@ function f1()
 
 function login()
 {
-  alert("login...")
   var st = document.getElementById("token");
-  st.setAttribute("placeholder", "Hello World......"); 
-  document.getElementById('time').innerHTML = Date();
-}
+  st.setAttribute("placeholder", "Hello World......");
 
-function logout()
-{
-  alert("logout...")
   document.getElementById('time').innerHTML = Date();
 }
 
@@ -21,4 +15,6 @@ function show_result()
 {
   var st = document.getElementById("output2");
   st.innerHTML = "Hello World......";
+
+  document.getElementById('time').innerHTML = Date();
 }
