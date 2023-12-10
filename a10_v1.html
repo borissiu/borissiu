@@ -40,22 +40,22 @@
     <input class="button" type="submit " id="button99" value="99. Logout & Back to Main Menu">
 
     <div class="output1">Device Status : <input type="text" id="deviceStatus" size="100"></div>
-    <div class="output2"><p id="response"></p></div>
+    <div class="output2" type="text" id="output2"></p></div>
     <div class="notes ">PS : Hactl PoC - Convert Scripts to Web based solution.  Comments are welcome.</div>
+    <p class="text-lowercase">Lowercased text.</p>
+    <p class="text-uppercase">Uppercased text.</p>
+    <p class="text-capitalize">CapiTaliZed text.</p>
 </div>
 
 <script nonce="static-page">
 "use strict";
 
-var response = "{\"service-group\": \n \
-{\"member-list\":[ \n \
-{\"name\":\"172.31.102.129\", \"port\":19443, \"member-state\": \"disable\"}, \n \
-{\"name\":\"172.31.102.129\", \"port\":29443, \"member-state\": \"enable\"}, \n \
-{\"name\":\"172.31.102.130\", \"port\":19443, \"member-state\": \"disable\"}, \n \
-{\"name\":\"172.31.102.130\", \"port\":29443, \"member-state\": \"enable\"}]} \n \
-} \n"
+var msg = "Hi" + "\n" + "Hi" + "\n" + "Hi" + "\n" + "Hi" + "\n"
 
-<!-- document.getElementById('time').innerHTML = Date(); -->
+let output2 = document.getElementById('output2');
+let text = document.createElement('text');
+text.appendChild(document.createTextNode(msg));
+output2.appendChild(text);
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login').addEventListener('click', login);
@@ -68,3 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
+
+
+<!-- 
+function show_result(result)
+{
+    var div = document.getElementById("result");
+    if (div != null) {
+        for (var i = 0; div.childNodes.length; i++) {
+            div.removeChild(div.childNodes[0]);
+        }
+
+        var text = document.createElement("textarea");
+        text.appendChild(document.createTextNode(result));
+
+        div.appendChild(text);
+        text.style.height = text.scrollHeight+'px';
+    }
+    document.getElementById('host_id').focus();
+} 
+-->
