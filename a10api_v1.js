@@ -8,11 +8,13 @@ function login()
   alert("login...")
   var st = document.getElementById("token");
   st.setAttribute("placeholder", "Hello World......"); 
+  document.getElementById('time').innerHTML = Date();
 }
 
 function logout()
 {
   alert("logout...")
+  document.getElementById('time').innerHTML = Date();
 }
 
 function show_result()
