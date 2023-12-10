@@ -1,3 +1,4 @@
+let hostname = "vADC200"; haStatus = "Active"
 function f1()
 {
   location.href = 'https://www.google.com';
@@ -14,7 +15,7 @@ function login()
 function buttonA()
 {
   const UIdeviceStatus = document.querySelector('#deviceStatus');
-  UIdeviceStatus.value = "Hostname:" + Date();
+  UIdeviceStatus.value = "Hostname: " + hostname + ' ' + haStatus + Date();
 }
 
 function show_result()
