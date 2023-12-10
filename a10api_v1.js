@@ -108,7 +108,7 @@ function buttonA()
     if ( new String(xmlhttp.status) == "204" ) {
       response = new Date() + '\n' + "A - Configruation sync completed";
     } else {
-      response = new Date() + '\n' + "A - Faulure" + response
+      response = new Date() + '\n' + "A - Faulure \n" + response
     }
     out3(response);
   }
@@ -143,7 +143,7 @@ function buttonB()
     if ( new String(xmlhttp.status) == "204" ) {
       response = new Date() + '\n' + "B - Configruation sync completed";
     } else {
-      response = new Date() + '\n' + "B - Failure" + response
+      response = new Date() + '\n' + "B - Failure \n" + response
     }
     out3(response);
   }
