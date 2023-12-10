@@ -19,7 +19,7 @@
     background-color: pink;
   }
   .button1 {
-    background-color: grey; width: 600px; height: 30px;
+    background-color: grey
   }
   .button2 {
     background-color: burlywood; width: 600px; height: 30px;
@@ -37,11 +37,12 @@
     <div class="input">Username : <input type="text" id="user" value="admin" size="32"></div>
     <div class="input">Password : <input type="password" id="password" value="a10" size="32"></div>
     <div class="input">AuthToken : <input type="text" id="token" placeholder="Token String" size="32"></div>
-    <input class="button" type="submit " id="login" value="LOGIN"><div id="time"></div>
-    <script>document.getElementById('time').innerHTML = Date();</script>
+    <input class="button" type="submit " id="login" value="Login">
 
     <!-- <input class="button" type="submit " id="show_result_id" value="show result"></div> -->
     <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
+    <div id="time"></div>
+    <div id="deviceStatus"></div>
     <input class="button1" type="submit " id="buttonA" value="A. Switch from Cluster1 to Cluster2 (enable Cluster2 and ForcedOffline Clusert1)">
     <input class="button2" type="submit " id="buttonB" value="B. Switch from Cluster2 to Cluster1 (enable Cluster1 and ForceOffline Clusert2)">
     <input class="button1" type="submit " id="buttonC" value="S. Show Loadbalancer status and Cargo-SVC Pool status">
@@ -58,11 +59,15 @@
 
 <script nonce="static-page">
 "use strict";
+
+document.getElementById('time').innerHTML = Date();
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login').addEventListener('click', login);
-  document.getElementById('login').addEventListener('click', login);
-  document.getElementById('login').addEventListener('click', login);
-  document.getElementById('login').addEventListener('click', login);
+  document.getElementById('buttonA').addEventListener('click', buttonA);
+  document.getElementById('buttonB').addEventListener('click', buttonB);
+  document.getElementById('buttonS').addEventListener('click', buttonS);
+  document.getElementById('button99').addEventListener('click', button99);
   });
 </script>
 
