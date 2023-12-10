@@ -6,6 +6,8 @@ function f1()
 function login()
 {
   alert("login...")
+  var st = document.getElementById("token");
+  st.setAttribute(placeholder, "Hello World......"); 
 }
 
 function logout()
