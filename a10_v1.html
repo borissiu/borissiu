@@ -30,18 +30,17 @@
 <body>
   <div class="container">
     <div class="input">Username : <input type="text" id="user" value="admin" size="32"></div>
-    <div class="input">Password : <input type="password" id="passwd" value="a10" size="32"></div>
-    <div class="input">AuthPass : <input type="text" id="token" placeholder="Token String" size="32"></div>
-    <input class="button" type="submit " id="login_id" value="login"></div>
-    <div id="time"></div>
-    <input class="button" type="submit " id="show_result_id" value="show result"></div>
-
-    <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
+    <div class="input">Password : <input type="password" id="password" value="a10" size="32"></div>
+    <div class="input">AuthToken : <input type="text" id="token" placeholder="Token String" size="32"></div>
+    <input class="button" type="submit " id="login" value="LOGIN"><div id="time"></div>
     <script>document.getElementById('time').innerHTML = Date();</script></br>
 
-    <button type="button" class="btn btn-primary btn-lg btn-block" id="A">Block level buttonBlock level buttonBlock level button</button></br>
-    <button type="button" class="btn btn-secondary btn-lg btn-block" id="B">Block level buttonBlock level button</button></br>
-    <button type="button" class="btn btn-primary btn-lg btn-block" id="C">Block level button</button></br>
+    <!-- <input class="button" type="submit " id="show_result_id" value="show result"></div> -->
+    <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
+    <input class="button" type="submit " id="A" value="A) Cluster A switch to B"></div>
+    <input class="button" type="submit " id="B" value="B) Cluster B switch to A"></div>
+    <input class="button" type="submit " id="C" value="S) Status"></div>
+    <input class="button" type="submit " id="C" value="99) Back to main menu"></div>
 
     <div class="output2"><span>Show Something Here: </span><span id="output2"></span></div>
     <div class="output1">Password : <input type="text" id="password"></div>
