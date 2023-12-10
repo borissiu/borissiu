@@ -1,4 +1,4 @@
-let hostname = "Undefine"; haStatus = "Undefine";
+let hostname = "Undefine"; haStatus = "Undefine"; peer_ip = '';
 let auth = "Undefine"; response = "";
 
 function new_http_request()
@@ -60,6 +60,20 @@ function login()
   json_response = JSON.parse(response);
   host_id = json_response["hostname"]["value"];
 
+  response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/partition-vrid-all-status/oper");
+  var json_response = JSON.parse(response);
+  var local_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["local_device_ID"];
+  var active_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["active_device_id"];
+
+  response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/detail/oper");
+  var json_response = JSON.parse(response);
+  peer_ip = json_response["detail"]["oper"]["peer_info_list"][0]["peer_ip"];
+
+  if ( local_device_id != active_device_id ) {
+    alert("This is Standby Device, let's connect to Active device (" + peer_ip + ").");
+    location.href = 'https://' + peer_ip + '/hactl-l.html';
+  }
+
   const UIdeviceStatus = document.querySelector('#deviceStatus');
   UIdeviceStatus.value = "Hostname: " + host_id + ' (' + device_state + '), User Logon: ' + Date();
 }
@@ -86,6 +100,18 @@ function buttonA()
   output += obj_data["service-group"]["member-list"][3]["name"] + ' ' + obj_data["service-group"]["member-list"][3]["port"] + ' ' + obj_data["service-group"]["member-list"][3]["member-state"] + '\n'
 
   out2(output);
+
+  if ( document.getElementById('checkbox1').checked ) {
+    var msg = "{\"sync\": {\"type\": \"all\", \"all-partitions\": 1, \"address\": \"" + peer_ip + "\", \"auto-authentication\": 1}}"
+    var response = post(xmlhttp, auth, "/axapi/v3/configure/sync", msg);
+
+    if ( new String(xmlhttp.status) == "204" ) {
+      response = new Date() + '\n' + "A - Configruation sync completed";
+    } else {
+      response = new Date() + '\n' + "A - Faulure" + response
+    }
+    out3(response);
+  }
 }
 
 function buttonB()
@@ -110,6 +136,17 @@ function buttonB()
   output += obj_data["service-group"]["member-list"][3]["name"] + ' ' + obj_data["service-group"]["member-list"][3]["port"] + ' ' + obj_data["service-group"]["member-list"][3]["member-state"] + '\n'
 
   out2(output);
+
+  if ( document.getElementById('checkbox2').checked ) { 
+    var msg = "{\"sync\": {\"type\": \"all\", \"all-partitions\": 1, \"address\": \"" + peer_ip + "\", \"auto-authentication\": 1}}"
+    var response = post(xmlhttp, auth, "/axapi/v3/configure/sync", msg);
+    if ( new String(xmlhttp.status) == "204" ) {
+      response = new Date() + '\n' + "B - Configruation sync completed";
+    } else {
+      response = new Date() + '\n' + "B - Failure" + response
+    }
+    out3(response);
+  }
 }
 
 function buttonS()
