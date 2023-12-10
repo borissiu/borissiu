@@ -20,7 +20,7 @@ function buttonA()
   const UIdeviceStatus = document.querySelector('#deviceStatus');
   UIdeviceStatus.value = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
   const UIresponse = document.querySelector('#response');
-  document.UIresponse.appendChild(document.createTextNode(response));
+  document.body.appendChild(document.createTextNode(response));
 }
 
 function buttonB()
