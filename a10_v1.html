@@ -30,12 +30,16 @@
 <body>
   <div class="container">
     <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
-    <div class="input">Username : <input type="text" id="user" value="admin" size="32" required></div>
-    <div class="input">Password : <input type="password" id="passwd" value="a10" size="32" required></div>
+    <div class="input">Username : <input type="text" id="user" value="admin" size="32"></div>
+    <div class="input">Password : <input type="password" id="passwd" value="a10" size="32"></div>
     <div class="input">AuthPass : <input type="text" id="token" placeholder="Token String" size="32"></div>
-    <input class="button" type="submit " id="login_id" value="login"></div>
-    <input class="button" type="submit " id="show_result_id" value="show result"></div>
+    <div input class="button" type="submit " id="login_id" value="login"></div>
+    <div input class="button" type="submit " id="show_result_id" value="show result"></div>
     <script>document.write(Date());</script>
+
+    <button type="button" class="btn btn-primary btn-lg btn-block" id="A">Block level button</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" id="B">Block level button</button>  
+    <button type="button" class="btn btn-primary btn-lg btn-block" id="C">Block level button</button>
 
     <div class="output2"><span>Show Something Here: </span><span id="output2"></span></div>
     <div class="output1">Password : <input type="text" id="password"></div>
@@ -49,10 +53,8 @@
 <script nonce="static-page">
 "use strict";
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('login_id')
-          .addEventListener('click', login);
-  document.getElementById('show_result_id')
-          .addEventListener('click', show_result);
+  document.getElementById('login_id').addEventListener('click', login);
+  document.getElementById('show_result_id').addEventListener('click', show_result);
   });
 </script>
 
