@@ -71,7 +71,7 @@ function login()
 
   if ( local_device_id != active_device_id ) {
     alert("This is Standby Device, let's connect to Active device (" + peer_ip + ").");
-    location.href = 'https://' + peer_ip + 'a10_l_v1.html';
+    location.href = 'https://' + peer_ip + '/a10_l_v1.html';
   }
 
   const UIdeviceStatus = document.querySelector('#deviceStatus');
