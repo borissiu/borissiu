@@ -16,7 +16,18 @@ function buttonA()
 {
   const UIdeviceStatus = document.querySelector('#deviceStatus');
   UIdeviceStatus.value = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
+  const UIresponse = document.querySelector('#response');
+  UIresponse.value = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
 }
+
+function buttonB()
+{
+  const UIdeviceStatus = document.querySelector('#deviceStatus');
+  UIdeviceStatus.value = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
+  const UIresponse = document.querySelector('#response');
+  UIresponse.value = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
+}
+
 
 function show_result()
 {
