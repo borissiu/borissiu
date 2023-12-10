@@ -1,11 +1,9 @@
-let hostname = "vADC200"; haStatus = "Active";
+let hostname = "Undefine"; haStatus = "Undefine";
 
 function login()
 {
   var st = document.getElementById("token");
   st.setAttribute("placeholder", "Hello World......");
-
-  document.getElementById('deviceStatus').innerHTML = Date();
 }
 
 function buttonA()
@@ -24,7 +22,7 @@ function buttonB()
   UIresponse.innerHTML = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
 }
 
-function f1()
+function button99()
 {
   location.href = 'https://www.google.com';
 }

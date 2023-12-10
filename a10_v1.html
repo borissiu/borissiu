@@ -11,18 +11,17 @@
 </head>
 
 <style>
+  h1, h2, h3, h4, h5, h6{
+    margin-top:10px; margin-bottom:0px;
+  }
   .container {
-      margin: 0px;
-      padding: 1px;
+    margin: 0px; padding: 1px;
   }
   .button {
     background-color: pink; width: 800px; height: 30px;
   }
   .notes {
-      font-size: 12px; font-style: italic;
-  }
-  .output2 {
-      font-size: 12px;
+    font-size: 13px; font-style: italic;
   }
 </style>
 
@@ -39,23 +38,34 @@
     <input class="button" type="submit " id="buttonS" value="S. Show Loadbalancer status and Cargo-SVC Pool status">
     <input class="button" type="submit " id="button99" value="99. Logout & Back to Main Menu">
 
-    <div class="output1">Device Status : <input type="text" id="deviceStatus" size="100"></div>
-    <div class="output2" type="text" id="output2"></p></div>
-    <div class="notes ">PS : Hactl PoC - Convert Scripts to Web based solution.  Comments are welcome.</div>
-    <p class="text-lowercase">Lowercased text.</p>
-    <p class="text-uppercase">Uppercased text.</p>
-    <p class="text-capitalize">CapiTaliZed text.</p>
+    <div>Device Status : <input type="text" id="deviceStatus" size="100"></div>
+    <div>Operation Results :</div>
+    <div id="output2"></div>
+    <div>Configuration Sync :</div>
+    <div id="output3"></div>
+    
+    <div class="notes ">PS : Hactl PoC, comments are welcome.</div>
 </div>
 
 <script nonce="static-page">
 "use strict";
 
-var msg = "Hi" + "\n" + "Hi" + "\n" + "Hi" + "\n" + "Hi" + "\n"
+var msg = "A. Switch from Cluster1 to Cluster2 (enable Cluster2 and ForcedOffline Clusert1)" + "\n" + "Hi" + "\n" + "Hi" + "\n" + "Hi" + "\n"
 
 let output2 = document.getElementById('output2');
-let text = document.createElement('text');
-text.appendChild(document.createTextNode(msg));
-output2.appendChild(text);
+let text2 = document.createElement('textarea');
+text2.appendChild(document.createTextNode(msg));
+output2.appendChild(text2);
+text2.style.width = 60 + 'em';
+text2.style.height = text2.scrollHeight + 'px';
+
+
+let output3 = document.getElementById('output3');
+let text3 = document.createElement('textarea');
+text3.appendChild(document.createTextNode(msg));
+output3.appendChild(text3);
+text3.style.width = 60 + 'em';
+text3.style.height = text3.scrollHeight + 'px';
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login').addEventListener('click', login);
@@ -68,23 +78,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
-
-
-<!-- 
-function show_result(result)
-{
-    var div = document.getElementById("result");
-    if (div != null) {
-        for (var i = 0; div.childNodes.length; i++) {
-            div.removeChild(div.childNodes[0]);
-        }
-
-        var text = document.createElement("textarea");
-        text.appendChild(document.createTextNode(result));
-
-        div.appendChild(text);
-        text.style.height = text.scrollHeight+'px';
-    }
-    document.getElementById('host_id').focus();
-} 
--->
