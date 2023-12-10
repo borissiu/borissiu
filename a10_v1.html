@@ -16,13 +16,7 @@
       padding: 1px;
   }
   .button {
-    background-color: pink;
-  }
-  .button1 {
-    background-color: grey
-  }
-  .button2 {
-    background-color: burlywood; width: 600px; height: 30px;
+    background-color: pink; width: 800px; height: 30px;
   }
   .notes {
       font-size: 12px; font-style: italic;
@@ -39,15 +33,16 @@
     <div class="input">AuthToken : <input type="text" id="token" placeholder="Token String" size="32"></div>
     <input class="button" type="submit " id="login" value="Login">
 
-    <!-- <input class="button" type="submit " id="show_result_id" value="show result"></div> -->
-    <!-- <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5> -->
+    <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
     <input class="button" type="submit " id="buttonA" value="A. Switch from Cluster1 to Cluster2 (enable Cluster2 and ForcedOffline Clusert1)">
     <input class="button" type="submit " id="buttonB" value="B. Switch from Cluster2 to Cluster1 (enable Cluster1 and ForceOffline Clusert2)">
     <input class="button" type="submit " id="buttonS" value="S. Show Loadbalancer status and Cargo-SVC Pool status">
     <input class="button" type="submit " id="button99" value="99. Logout & Back to Main Menu">
 
-    <div id="time"></div>
-    <div id="deviceStatus"></div>
+    <div class="output1">Device Status : <input type="text" id="deviceStatus" size="80"></div>
+
+    <div id="deviceStatus" <span>Hostname : </span><span value=""></span></div><div id="time"></div>
+
     <div class="output2"><span>Show Something Here: </span><span id="output2"></span></div>
     <div class="output1">Password : <input type="text" id="output1"></div>
     <div class="output2">Full Response: <input type="text" class="output2" id="response" size="170"></div>

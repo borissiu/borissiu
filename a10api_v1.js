@@ -8,24 +8,24 @@ function login()
   var st = document.getElementById("token");
   st.setAttribute("placeholder", "Hello World......");
 
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
 
 function buttonA()
 {
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
 function buttonB()
 {
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
 function buttonS()
 {
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
 function button99()
 {
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
 
 
@@ -34,5 +34,5 @@ function show_result()
   var st = document.getElementById("output2");
   st.innerHTML = "Hello World......";
 
-  document.getElementById('time').innerHTML = Date();
+  document.getElementById('deviceStatus').innerHTML = Date();
 }
