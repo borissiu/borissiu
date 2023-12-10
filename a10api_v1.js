@@ -1,8 +1,11 @@
-let hostname = "vADC200"; haStatus = "Active"
-function f1()
-{
-  location.href = 'https://www.google.com';
-}
+let hostname = "vADC200"; haStatus = "Active";
+var response = "{\"service-group\": \
+{\"member-list\":[ \
+{\"name\":\"172.31.102.129\", \"port\":19443, \"member-state\": \"disable\"}, \
+{\"name\":\"172.31.102.129\", \"port\":29443, \"member-state\": \"enable\"}, \
+{\"name\":\"172.31.102.130\", \"port\":19443, \"member-state\": \"disable\"}, \
+{\"name\":\"172.31.102.130\", \"port\":29443, \"member-state\": \"enable\"}]} \
+}"
 
 function login()
 {
@@ -28,11 +31,8 @@ function buttonB()
   UIresponse.innerHTML = "Hostname: " + hostname + ' (' + haStatus + '),                    ' + Date();
 }
 
-
-function show_result()
+function f1()
 {
-  var st = document.getElementById("output2");
-  st.innerHTML = "Hello World......";
-
-  document.getElementById('deviceStatus').innerHTML = Date();
+  location.href = 'https://www.google.com';
 }
+
