@@ -15,8 +15,11 @@
       margin: 0px;
       padding: 1px;
   }
-  .button {
+  .button1 {
       background-color: pink
+  }
+  .button2 {
+    background-color: burlywood
   }
   .notes {
       font-size: 12px;
@@ -37,10 +40,10 @@
 
     <!-- <input class="button" type="submit " id="show_result_id" value="show result"></div> -->
     <h5 class="h5">Cargo Internal APP Loadbalancer Maintenance Menu</h5>
-    <input class="button" type="submit " id="A" value="A) Cluster A switch to B"></div>
-    <input class="button" type="submit " id="B" value="B) Cluster B switch to A"></div>
-    <input class="button" type="submit " id="C" value="S) Status"></div>
-    <input class="button" type="submit " id="C" value="99) Back to main menu"></div>
+    <input class="button1" type="submit " id="A" value="A. Switch from Cluster1 to Cluster2 (enable Cluster2 and ForcedOffline Clusert1)"></div>
+    <input class="button2" type="submit " id="B" value="B. Switch from Cluster2 to Cluster1 (enable Cluster1 and ForceOffline Clusert2)"></div>
+    <input class="button1" type="submit " id="C" value="S. Show Loadbalancer status and Cargo-SVC Pool status"></div>
+    <input class="button2" type="submit " id="C" value="99. Logout & Back to Main Menu"></div>
 
     <div class="output2"><span>Show Something Here: </span><span id="output2"></span></div>
     <div class="output1">Password : <input type="text" id="password"></div>
@@ -54,8 +57,10 @@
 <script nonce="static-page">
 "use strict";
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('login_id').addEventListener('click', login);
-  document.getElementById('show_result_id').addEventListener('click', show_result);
+  document.getElementById('login').addEventListener('click', login);
+  document.getElementById('login').addEventListener('click', login);
+  document.getElementById('login').addEventListener('click', login);
+  document.getElementById('login').addEventListener('click', login);
   });
 </script>
 
