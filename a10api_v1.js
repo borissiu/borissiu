@@ -1,9 +1,45 @@
 let hostname = "Undefine"; haStatus = "Undefine";
 
+function new_http_request()
+{
+  var xmlhttp = null;
+  xmlhttp = new XMLHttpRequest();
+  return xmlhttp;
+}
+
+
+function get(xmlhttp, auth, url)
+{
+  var response = ""
+}
+
+function post(xmlhttp, auth, url, json)
+{
+  xmlhttp.open("POST", url, false);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+
+  if (auth != null) {
+    xmlhttp.setRequestHeader("Authorization", auth);
+  }
+  
+  xmlhttp.send(json);
+  return xmlhttp.responseText;
+}
+
 function login()
 {
-  var st = document.getElementById("token");
-  st.setAttribute("placeholder", "Hello World......");
+  var url = '/axapi/v3/auth';
+  var msg = "{\"credentials\": {\"username\": \"" + document.getElementById('username') + "\", \"password\": \"" + document.getElementById('password') + "\"}}";
+  var response = "";
+
+  var xmlhttp = new_http_request();
+  var response = ajax_send_post(xmlhttp, null, url, msg);
+
+  var json = JSON.parse(response);
+  token.value = "A10 " + json.authresponse.signature;
+
+  var token = document.getElementById("token");
+  token.setAttribute("placeholder", token.value);
 }
 
 function buttonA()
