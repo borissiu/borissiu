@@ -1,11 +1,4 @@
 let hostname = "vADC200"; haStatus = "Active";
-var response = "{\"service-group\": \
-{\"member-list\":[ \
-{\"name\":\"172.31.102.129\", \"port\":19443, \"member-state\": \"disable\"}, \
-{\"name\":\"172.31.102.129\", \"port\":29443, \"member-state\": \"enable\"}, \
-{\"name\":\"172.31.102.130\", \"port\":19443, \"member-state\": \"disable\"}, \
-{\"name\":\"172.31.102.130\", \"port\":29443, \"member-state\": \"enable\"}]} \
-}"
 
 function login()
 {
