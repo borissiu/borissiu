@@ -174,7 +174,7 @@ function statusSNAT() {
 
 function removeSNAT() {
   var xmlhttp = new_http_request();
-  msg = removeSnatPool;
+  msg = removeSnatPool_v4;
 
   var response = post(xmlhttp, auth, '/axapi/v3/clideploy', msg);
   var obj_data = JSON.parse(response);
