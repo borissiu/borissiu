@@ -194,7 +194,7 @@ function configSNAT_PO() {
 
 function configSNAT_RR() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4;
+  msg = snatpool_rr_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
@@ -205,7 +205,7 @@ function configSNAT_RR() {
 
 function configSNAT_RR_PO() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4;
+  msg = snatpool_rr_po_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
