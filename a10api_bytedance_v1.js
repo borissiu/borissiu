@@ -179,8 +179,8 @@ function removeSNAT() {
   var response = post(xmlhttp, auth, '/axapi/v3/clideploy', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
-  statusSNAT();
+  out2(response);
+  //statusSNAT();
 }
 
 function configSNAT() {
