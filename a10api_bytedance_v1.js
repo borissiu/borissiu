@@ -145,7 +145,7 @@ function statusTemplatePort() {
 
 function unbindTemplatePort() {
   var xmlhttp = new_http_request();
-  var msg = unbindTemplatePort;
+  msg = unbindTemplatePort;
 
   var response = post(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
@@ -155,7 +155,7 @@ function unbindTemplatePort() {
 
 function bindTemplatePort() {
   var xmlhttp = new_http_request();
-  var msg = bindTemplatePort;
+  msg = bindTemplatePort;
 
   var response = post(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
