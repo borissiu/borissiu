@@ -74,52 +74,12 @@ function login()
   var token = document.getElementById("token");
   token.setAttribute("placeholder", auth);
 
-  // response = get(xmlhttp, auth, '/axapi/v3/vrrp-a/vrid/0/oper');
-  // json_response = JSON.parse(response);
-  // device_state = json_response["vrid"]["oper"]["state"];
-
   response = get(xmlhttp, auth, "/axapi/v3/hostname");
   json_response = JSON.parse(response);
   host_id = json_response["hostname"]["value"];
 
-  // response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/partition-vrid-all-status/oper");
-  // var json_response = JSON.parse(response);
-  // var local_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["local_device_ID"];
-  // var active_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["active_device_id"];
-
-  // response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/detail/oper");
-  // var json_response = JSON.parse(response);
-  // peer_ip = json_response["detail"]["oper"]["peer_info_list"][0]["peer_ip"];
-
-  // if ( local_device_id != active_device_id ) {
-  //   alert("This is Standby Device, let's connect to Active device (" + peer_ip + ").");
-  //   location.href = 'https://' + peer_ip + '/a10_l_v1.html';
-  // }
-
   const UIdeviceStatus = document.querySelector('#deviceStatus');
-  // UIdeviceStatus.value = "Hostname: " + host_id + ' (' + device_state + '), User Logon: ' + Date();
   UIdeviceStatus.value = "Hostname: " + host_id + ', User Logon: ' + Date();
-}
-
-function statusSNAT() {
-  var xmlhttp = new_http_request();
-  var response = get(xmlhttp, auth, '/axapi/v3/ip/nat/pool/');
-  var obj_data = JSON.parse(response);
-
-  var output = 'SNAT Status - ' + new Date() + '\n\n'
-  output += obj_data["pool-list"][0]["pool-name"] + ' ' + obj_data["pool-list"][0]["start-address"] + ' ' + obj_data["pool-list"][0]["end-address"] + ' ' + obj_data["pool-list"][0]["ip-rr"] + ' ' + obj_data["pool-list"][0]["port-overload"] + '\n'
-  output += obj_data["pool-list"][1]["pool-name"] + ' ' + obj_data["pool-list"][1]["start-address"] + ' ' + obj_data["pool-list"][1]["end-address"] + ' ' + obj_data["pool-list"][1]["ip-rr"] + ' ' + obj_data["pool-list"][1]["port-overload"] + '\n'
-  output += obj_data["pool-list"][2]["pool-name"] + ' ' + obj_data["pool-list"][2]["start-address"] + ' ' + obj_data["pool-list"][2]["end-address"] + ' ' + obj_data["pool-list"][2]["ip-rr"] + ' ' + obj_data["pool-list"][2]["port-overload"] + '\n'
-  output += obj_data["pool-list"][3]["pool-name"] + ' ' + obj_data["pool-list"][3]["start-address"] + ' ' + obj_data["pool-list"][3]["end-address"] + ' ' + obj_data["pool-list"][3]["ip-rr"] + ' ' + obj_data["pool-list"][3]["port-overload"] + '\n'
-  output += obj_data["pool-list"][4]["pool-name"] + ' ' + obj_data["pool-list"][4]["start-address"] + ' ' + obj_data["pool-list"][4]["end-address"] + ' ' + obj_data["pool-list"][4]["ip-rr"] + ' ' + obj_data["pool-list"][4]["port-overload"] + '\n'
-  output += obj_data["pool-list"][5]["pool-name"] + ' ' + obj_data["pool-list"][5]["start-address"] + ' ' + obj_data["pool-list"][5]["end-address"] + ' ' + obj_data["pool-list"][5]["ip-rr"] + ' ' + obj_data["pool-list"][5]["port-overload"] + '\n'
-  output += obj_data["pool-list"][6]["pool-name"] + ' ' + obj_data["pool-list"][6]["start-address"] + ' ' + obj_data["pool-list"][6]["end-address"] + ' ' + obj_data["pool-list"][6]["ip-rr"] + ' ' + obj_data["pool-list"][6]["port-overload"] + '\n'
-  output += obj_data["pool-list"][7]["pool-name"] + ' ' + obj_data["pool-list"][7]["start-address"] + ' ' + obj_data["pool-list"][7]["end-address"] + ' ' + obj_data["pool-list"][7]["ip-rr"] + ' ' + obj_data["pool-list"][7]["port-overload"] + '\n'
-  output += obj_data["pool-list"][8]["pool-name"] + ' ' + obj_data["pool-list"][8]["start-address"] + ' ' + obj_data["pool-list"][8]["end-address"] + ' ' + obj_data["pool-list"][8]["ip-rr"] + ' ' + obj_data["pool-list"][8]["port-overload"] + '\n'
-  output += obj_data["pool-list"][9]["pool-name"] + ' ' + obj_data["pool-list"][9]["start-address"] + ' ' + obj_data["pool-list"][9]["end-address"] + ' ' + obj_data["pool-list"][9]["ip-rr"] + ' ' + obj_data["pool-list"][9]["port-overload"] + '\n'
-  output += obj_data["pool-list"][10]["pool-name"] + ' ' + obj_data["pool-list"][10]["start-address"] + ' ' + obj_data["pool-list"][10]["end-address"] + ' ' + obj_data["pool-list"][10]["ip-rr"] + ' ' + obj_data["pool-list"][10]["port-overload"] + '\n'
-
-  out2(output);
 }
 
 function statusTemplatePort() {
@@ -178,104 +138,73 @@ function bindTemplatePort() {
   statusTemplatePort();
 }
 
-function buttonA()
-{
-  var response = "";
-  var msg = "{\"service-group\": \
-  {\"member-list\":[ \
-  {\"name\":\"172.31.102.129\", \"port\":19443, \"member-state\": \"disable\"}, \
-  {\"name\":\"172.31.102.129\", \"port\":29443, \"member-state\": \"enable\"}, \
-  {\"name\":\"172.31.102.130\", \"port\":19443, \"member-state\": \"disable\"}, \
-  {\"name\":\"172.31.102.130\", \"port\":29443, \"member-state\": \"enable\"}]} \
-  }"
-
+function statusSNAT() {
   var xmlhttp = new_http_request();
-  var response = post(xmlhttp, auth, '/axapi/v3/slb/service-group/HDC_OHS_LVC_OAT_HTTPS', msg);
-
-  var obj_data = JSON.parse(response);
-  var output = 'A - ' + new Date() + '\n'
-  output += obj_data["service-group"]["member-list"][0]["name"] + ' ' + obj_data["service-group"]["member-list"][0]["port"] + ' ' + obj_data["service-group"]["member-list"][0]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][1]["name"] + ' ' + obj_data["service-group"]["member-list"][1]["port"] + ' ' + obj_data["service-group"]["member-list"][1]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][2]["name"] + ' ' + obj_data["service-group"]["member-list"][2]["port"] + ' ' + obj_data["service-group"]["member-list"][2]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][3]["name"] + ' ' + obj_data["service-group"]["member-list"][3]["port"] + ' ' + obj_data["service-group"]["member-list"][3]["member-state"] + '\n'
-
-  out2(output);
-
-  if ( document.getElementById('checkbox1').checked ) {
-    var msg = "{\"sync\": {\"type\": \"all\", \"all-partitions\": 1, \"address\": \"" + peer_ip + "\", \"auto-authentication\": 1}}"
-    var response = post(xmlhttp, auth, "/axapi/v3/configure/sync", msg);
-
-    if ( new String(xmlhttp.status) == "204" ) {
-      response = new Date() + '\n' + "A - Configruation sync completed";
-    } else {
-      response = new Date() + '\n' + "A - Faulure \n" + response
-    }
-    out3(response);
-  }
-}
-
-function buttonB()
-{
-  var response = "";
-  var msg = "{\"service-group\": \
-  {\"member-list\":[ \
-  {\"name\":\"172.31.102.129\", \"port\":19443, \"member-state\": \"enable\"}, \
-  {\"name\":\"172.31.102.129\", \"port\":29443, \"member-state\": \"disable\"}, \
-  {\"name\":\"172.31.102.130\", \"port\":19443, \"member-state\": \"enable\"}, \
-  {\"name\":\"172.31.102.130\", \"port\":29443, \"member-state\": \"disable\"}]} \
-  }"
-
-  var xmlhttp = new_http_request();
-  var response = post(xmlhttp, auth, '/axapi/v3/slb/service-group/HDC_OHS_LVC_OAT_HTTPS', msg);
-
-  var obj_data = JSON.parse(response);
-  var output = 'B - ' + new Date() + '\n'
-  output += obj_data["service-group"]["member-list"][0]["name"] + ' ' + obj_data["service-group"]["member-list"][0]["port"] + ' ' + obj_data["service-group"]["member-list"][0]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][1]["name"] + ' ' + obj_data["service-group"]["member-list"][1]["port"] + ' ' + obj_data["service-group"]["member-list"][1]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][2]["name"] + ' ' + obj_data["service-group"]["member-list"][2]["port"] + ' ' + obj_data["service-group"]["member-list"][2]["member-state"] + '\n'
-  output += obj_data["service-group"]["member-list"][3]["name"] + ' ' + obj_data["service-group"]["member-list"][3]["port"] + ' ' + obj_data["service-group"]["member-list"][3]["member-state"] + '\n'
-
-  out2(output);
-
-  if ( document.getElementById('checkbox2').checked ) { 
-    var msg = "{\"sync\": {\"type\": \"all\", \"all-partitions\": 1, \"address\": \"" + peer_ip + "\", \"auto-authentication\": 1}}"
-    var response = post(xmlhttp, auth, "/axapi/v3/configure/sync", msg);
-    if ( new String(xmlhttp.status) == "204" ) {
-      response = new Date() + '\n' + "B - Configruation sync completed";
-    } else {
-      response = new Date() + '\n' + "B - Failure \n" + response
-    }
-    out3(response);
-  }
-}
-
-function buttonS()
-{
-  var xmlhttp = new_http_request();
-  var response = get(xmlhttp, auth, '/axapi/v3/slb/service-group/HDC_OHS_LVC_OAT_HTTPS');
+  var response = get(xmlhttp, auth, '/axapi/v3/ip/nat/pool/');
   var obj_data = JSON.parse(response);
 
-  var xmlhttp = new_http_request();
-  var response = get(xmlhttp, auth, '/axapi/v3/slb/service-group/HDC_OHS_LVC_OAT_HTTPS/stats');
-  var obj_stat = JSON.parse(response);
-
-  var output = 'S - ' + new Date() + '\n'
-  output += obj_data["service-group"]["member-list"][0]["name"] + ' ' + obj_data["service-group"]["member-list"][0]["port"] + ' ' + obj_data["service-group"]["member-list"][0]["member-state"]
-  output += ', curr_conn ' + obj_stat["service-group"]["member-list"][0]["stats"]["curr_conn"] + ', response_time ' + obj_stat["service-group"]["member-list"][0]["stats"]["response_time"] + '\n'
-  output += obj_data["service-group"]["member-list"][1]["name"] + ' ' + obj_data["service-group"]["member-list"][1]["port"] + ' ' + obj_data["service-group"]["member-list"][1]["member-state"]
-  output += ', curr_conn ' + obj_stat["service-group"]["member-list"][1]["stats"]["curr_conn"] + ', response_time ' + obj_stat["service-group"]["member-list"][1]["stats"]["response_time"] + '\n'
-  output += obj_data["service-group"]["member-list"][2]["name"] + ' ' + obj_data["service-group"]["member-list"][2]["port"] + ' ' + obj_data["service-group"]["member-list"][2]["member-state"]
-  output += ', curr_conn ' + obj_stat["service-group"]["member-list"][2]["stats"]["curr_conn"] + ', response_time ' + obj_stat["service-group"]["member-list"][2]["stats"]["response_time"] + '\n'
-  output += obj_data["service-group"]["member-list"][3]["name"] + ' ' + obj_data["service-group"]["member-list"][3]["port"] + ' ' + obj_data["service-group"]["member-list"][3]["member-state"]
-  output += ', curr_conn ' + obj_stat["service-group"]["member-list"][3]["stats"]["curr_conn"] + ', response_time ' + obj_stat["service-group"]["member-list"][3]["stats"]["response_time"] + '\n'
+  var output = 'SNAT Status - ' + new Date() + '\n\n'
+  output += obj_data["pool-list"][0]["pool-name"] + ' ' + obj_data["pool-list"][0]["start-address"] + ' ' + obj_data["pool-list"][0]["end-address"] + ' ' + obj_data["pool-list"][0]["ip-rr"] + ' ' + obj_data["pool-list"][0]["port-overload"] + '\n'
+  output += obj_data["pool-list"][1]["pool-name"] + ' ' + obj_data["pool-list"][1]["start-address"] + ' ' + obj_data["pool-list"][1]["end-address"] + ' ' + obj_data["pool-list"][1]["ip-rr"] + ' ' + obj_data["pool-list"][1]["port-overload"] + '\n'
+  output += obj_data["pool-list"][2]["pool-name"] + ' ' + obj_data["pool-list"][2]["start-address"] + ' ' + obj_data["pool-list"][2]["end-address"] + ' ' + obj_data["pool-list"][2]["ip-rr"] + ' ' + obj_data["pool-list"][2]["port-overload"] + '\n'
+  output += obj_data["pool-list"][3]["pool-name"] + ' ' + obj_data["pool-list"][3]["start-address"] + ' ' + obj_data["pool-list"][3]["end-address"] + ' ' + obj_data["pool-list"][3]["ip-rr"] + ' ' + obj_data["pool-list"][3]["port-overload"] + '\n'
+  output += obj_data["pool-list"][4]["pool-name"] + ' ' + obj_data["pool-list"][4]["start-address"] + ' ' + obj_data["pool-list"][4]["end-address"] + ' ' + obj_data["pool-list"][4]["ip-rr"] + ' ' + obj_data["pool-list"][4]["port-overload"] + '\n'
+  output += obj_data["pool-list"][5]["pool-name"] + ' ' + obj_data["pool-list"][5]["start-address"] + ' ' + obj_data["pool-list"][5]["end-address"] + ' ' + obj_data["pool-list"][5]["ip-rr"] + ' ' + obj_data["pool-list"][5]["port-overload"] + '\n'
+  output += obj_data["pool-list"][6]["pool-name"] + ' ' + obj_data["pool-list"][6]["start-address"] + ' ' + obj_data["pool-list"][6]["end-address"] + ' ' + obj_data["pool-list"][6]["ip-rr"] + ' ' + obj_data["pool-list"][6]["port-overload"] + '\n'
+  output += obj_data["pool-list"][7]["pool-name"] + ' ' + obj_data["pool-list"][7]["start-address"] + ' ' + obj_data["pool-list"][7]["end-address"] + ' ' + obj_data["pool-list"][7]["ip-rr"] + ' ' + obj_data["pool-list"][7]["port-overload"] + '\n'
+  output += obj_data["pool-list"][8]["pool-name"] + ' ' + obj_data["pool-list"][8]["start-address"] + ' ' + obj_data["pool-list"][8]["end-address"] + ' ' + obj_data["pool-list"][8]["ip-rr"] + ' ' + obj_data["pool-list"][8]["port-overload"] + '\n'
+  output += obj_data["pool-list"][9]["pool-name"] + ' ' + obj_data["pool-list"][9]["start-address"] + ' ' + obj_data["pool-list"][9]["end-address"] + ' ' + obj_data["pool-list"][9]["ip-rr"] + ' ' + obj_data["pool-list"][9]["port-overload"] + '\n'
+  output += obj_data["pool-list"][10]["pool-name"] + ' ' + obj_data["pool-list"][10]["start-address"] + ' ' + obj_data["pool-list"][10]["end-address"] + ' ' + obj_data["pool-list"][10]["ip-rr"] + ' ' + obj_data["pool-list"][10]["port-overload"] + '\n'
 
   out2(output);
 }
 
-function button99()
-{
-  location.href = 'a10_menu_v1.html';
+function configSNAT() {
+  var xmlhttp = new_http_request();
+  msg = snatpool_v4;
+
+  var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
+  var obj_data = JSON.parse(response);
+
+  // out2(obj_data);
+  statusSNAT();
 }
+
+function configSNAT_PO() {
+  var xmlhttp = new_http_request();
+  msg = snatpool_v4_po;
+
+  var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
+  var obj_data = JSON.parse(response);
+
+  // out2(obj_data);
+  statusSNAT();
+}
+
+function configSNAT_RR() {
+  var xmlhttp = new_http_request();
+  msg = snatpool_v4_rr;
+
+  var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
+  var obj_data = JSON.parse(response);
+
+  // out2(obj_data);
+  statusSNAT();
+}
+
+function configSNAT_RR_PO() {
+  var xmlhttp = new_http_request();
+  msg = snatpool_v4_rr_po;
+
+  var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
+  var obj_data = JSON.parse(response);
+
+  // out2(obj_data);
+  statusSNAT();
+}
+
+
+
 
 function out2(response)
 {
@@ -1101,8 +1030,6 @@ let bindTemplatePortJson = '{ \
   ] \
 }'; 
 
-
-
 let snatpool_v4 = '{ \
   "pool-list": [ \
     { \
@@ -1212,6 +1139,351 @@ let snatpool_v4 = '{ \
       "netmask":"/28", \
       "ip-rr":0, \
       "port-overload":0, \
+      "uuid":"b553ad38-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_PCCW_v4" \
+    } \
+  ] \
+}';
+
+let snatpool_v4_po = '{ \
+  "pool-list": [ \
+    { \
+      "pool-name":"snat_CM_Bank_v4", \
+      "start-address":"117.144.84.158", \
+      "end-address":"117.144.84.158", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"ef774866-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_Dns_v4", \
+      "start-address":"117.144.84.156", \
+      "end-address":"117.144.84.157", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"21ff4d6a-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_v4", \
+      "start-address":"117.144.84.133", \
+      "end-address":"117.144.84.155", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"588a412c-a006-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Bank_v4", \
+      "start-address":"101.230.97.126", \
+      "end-address":"101.230.97.126", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"fbcc474c-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Dns_v4", \
+      "start-address":"101.230.97.124", \
+      "end-address":"101.230.97.125", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"2200b448-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_v4", \
+      "start-address":"101.230.97.101", \
+      "end-address":"101.230.97.123", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"bbadbf5a-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Bank_v4", \
+      "start-address":"211.95.64.158", \
+      "end-address":"211.95.64.158", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"f01eec24-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Dns_v4", \
+      "start-address":"211.95.64.156", \
+      "end-address":"211.95.64.157", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"224683a6-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_v4", \
+      "start-address":"211.95.64.133", \
+      "end-address":"211.95.64.155", \
+      "netmask":"/27", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"d59d8152-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_v4" \
+    }, \
+    { \
+      "pool-name":"snat_JPNTT_v4", \
+      "start-address":"61.213.176.53", \
+      "end-address":"61.213.176.62", \
+      "netmask":"/28", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"ad66b67e-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_JPNTT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_PCCW_v4", \
+      "start-address":"207.176.113.69", \
+      "end-address":"207.176.113.78", \
+      "netmask":"/28", \
+      "ip-rr":0, \
+      "port-overload":1, \
+      "uuid":"b553ad38-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_PCCW_v4" \
+    } \
+  ] \
+}';
+
+let snatpool_v4_rr = '{ \
+  "pool-list": [ \
+    { \
+      "pool-name":"snat_CM_Bank_v4", \
+      "start-address":"117.144.84.158", \
+      "end-address":"117.144.84.158", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"ef774866-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_Dns_v4", \
+      "start-address":"117.144.84.156", \
+      "end-address":"117.144.84.157", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"21ff4d6a-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_v4", \
+      "start-address":"117.144.84.133", \
+      "end-address":"117.144.84.155", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"588a412c-a006-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Bank_v4", \
+      "start-address":"101.230.97.126", \
+      "end-address":"101.230.97.126", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"fbcc474c-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Dns_v4", \
+      "start-address":"101.230.97.124", \
+      "end-address":"101.230.97.125", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"2200b448-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_v4", \
+      "start-address":"101.230.97.101", \
+      "end-address":"101.230.97.123", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"bbadbf5a-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Bank_v4", \
+      "start-address":"211.95.64.158", \
+      "end-address":"211.95.64.158", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"f01eec24-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Dns_v4", \
+      "start-address":"211.95.64.156", \
+      "end-address":"211.95.64.157", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"224683a6-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_v4", \
+      "start-address":"211.95.64.133", \
+      "end-address":"211.95.64.155", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"d59d8152-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_v4" \
+    }, \
+    { \
+      "pool-name":"snat_JPNTT_v4", \
+      "start-address":"61.213.176.53", \
+      "end-address":"61.213.176.62", \
+      "netmask":"/28", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"ad66b67e-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_JPNTT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_PCCW_v4", \
+      "start-address":"207.176.113.69", \
+      "end-address":"207.176.113.78", \
+      "netmask":"/28", \
+      "ip-rr":1, \
+      "port-overload":0, \
+      "uuid":"b553ad38-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_PCCW_v4" \
+    } \
+  ] \
+}';
+
+let snatpool_v4_rr_po = '{ \
+  "pool-list": [ \
+    { \
+      "pool-name":"snat_CM_Bank_v4", \
+      "start-address":"117.144.84.158", \
+      "end-address":"117.144.84.158", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"ef774866-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_Dns_v4", \
+      "start-address":"117.144.84.156", \
+      "end-address":"117.144.84.157", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"21ff4d6a-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CM_v4", \
+      "start-address":"117.144.84.133", \
+      "end-address":"117.144.84.155", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"588a412c-a006-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Bank_v4", \
+      "start-address":"101.230.97.126", \
+      "end-address":"101.230.97.126", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"fbcc474c-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_Dns_v4", \
+      "start-address":"101.230.97.124", \
+      "end-address":"101.230.97.125", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"2200b448-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CT_v4", \
+      "start-address":"101.230.97.101", \
+      "end-address":"101.230.97.123", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"bbadbf5a-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Bank_v4", \
+      "start-address":"211.95.64.158", \
+      "end-address":"211.95.64.158", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"f01eec24-a009-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Bank_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_Dns_v4", \
+      "start-address":"211.95.64.156", \
+      "end-address":"211.95.64.157", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"224683a6-a00a-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Dns_v4" \
+    }, \
+    { \
+      "pool-name":"snat_CU_v4", \
+      "start-address":"211.95.64.133", \
+      "end-address":"211.95.64.155", \
+      "netmask":"/27", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"d59d8152-a005-11ee-9587-1d4b7257581e", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_v4" \
+    }, \
+    { \
+      "pool-name":"snat_JPNTT_v4", \
+      "start-address":"61.213.176.53", \
+      "end-address":"61.213.176.62", \
+      "netmask":"/28", \
+      "ip-rr":1, \
+      "port-overload":1, \
+      "uuid":"ad66b67e-a008-11ee-aead-000c29bb3222", \
+      "a10-url":"/axapi/v3/ip/nat/pool/snat_JPNTT_v4" \
+    }, \
+    { \
+      "pool-name":"snat_PCCW_v4", \
+      "start-address":"207.176.113.69", \
+      "end-address":"207.176.113.78", \
+      "netmask":"/28", \
+      "ip-rr":1, \
+      "port-overload":1, \
       "uuid":"b553ad38-a008-11ee-aead-000c29bb3222", \
       "a10-url":"/axapi/v3/ip/nat/pool/snat_PCCW_v4" \
     } \

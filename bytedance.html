@@ -19,7 +19,7 @@
     margin: 0px; padding: 1px;
   }
   .button {
-    background-color: pink; width: 200px; height: 30px;
+    background-color: pink; width: 150px; height: 30px;
   }
   .notes {
     font-size: 13px; font-style: italic;
@@ -37,12 +37,8 @@
     <div class="input">AuthToken : <input type="text" id="token" value="Token String" size="32"></div>
     <input class="button" type="submit " id="login" value="Login">
 
-    <h5 class="h5">Template Port Status <input class="button" type="submit " id="statusTemplatePort" value="Template Port Status"><input class="button" type="submit " id="unbindTemplatePort" value="Unbind Template Port"><input class="button" type="submit " id="bindTemplatePort" value="Bind Template Port"></h5>
-    <h5 class="h5">SNAT Status <input class="button" type="submit " id="statusSNAT" value="SNAT Status"></h5>
-    <h5 class="h5">configSNAT  <input class="button" type="submit " id="configSNAT" value="Config SNAT"></h5>
-    <h5 class="h5">configSNAT_PO <input class="button" type="submit " id="configSNAT_PO" value="Config SNAT Port-Overload"></h5>
-    <h5 class="h5">configSNAT_RR <input class="button" type="submit " id="configSNAT_RR" value="Config SNAT IP-RR"></h5>
-    <h5 class="h5">configSNAT_RR_PO <input class="button" type="submit " id="configSNAT_RR_PO" value="Config SNAT IP-RR Port-Overload"></h5>
+    <h5 class="h5">Template Port Status <input class="button" type="submit " id="statusTemplatePort" value="Port Status"><input class="button" type="submit " id="unbindTemplatePort" value="Unbind"><input class="button" type="submit " id="bindTemplatePort" value="Bind"></h5>
+    <h5 class="h5">SNAT Status <input class="button" type="submit " id="statusSNAT" value="SNAT Status"><input class="button" type="submit " id="configSNAT" value="SNAT"><input class="button" type="submit " id="configSNAT_PO" value="SNAT PO"><input class="button" type="submit " id="configSNAT_RR" value="SNAT_RR"><input class="button" type="submit " id="configSNAT_RR_PO" value="SNAT_RR_PO"></h5>
     <hr>
 
     <div>Device Status :<input type="text" id="deviceStatus" size="96"></div>
@@ -243,10 +239,16 @@ text3.style.height = text3.scrollHeight + 'px';
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login').addEventListener('click', login);
+
   document.getElementById('statusTemplatePort').addEventListener('click', statusTemplatePort);
   document.getElementById('unbindTemplatePort').addEventListener('click', unbindTemplatePort);
   document.getElementById('bindTemplatePort').addEventListener('click', bindTemplatePort);
+  
   document.getElementById('statusSNAT').addEventListener('click', statusSNAT);
+  document.getElementById('configSNAT').addEventListener('click', configSNAT);
+  document.getElementById('configSNAT_PO').addEventListener('click', configSNAT_PO);
+  document.getElementById('configSNAT_RR').addEventListener('click', configSNAT_RR);
+  document.getElementById('configSNAT_RR_PO').addEventListener('click', configSNAT_RR_PO);
 
 });
 </script>
