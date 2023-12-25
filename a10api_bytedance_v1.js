@@ -59,18 +59,18 @@ function post(xmlhttp, auth, url, json)
   return xmlhttp.responseText;
 }
 
-function remove(xmlhttp, auth, url, json)
-{
-  xmlhttp.open("DELETE", url, false);
-  xmlhttp.setRequestHeader("Content-type", "application/json");
+// function remove(xmlhttp, auth, url, json)
+// {
+//   xmlhttp.open("DELETE", url, false);
+//   xmlhttp.setRequestHeader("Content-type", "application/json");
 
-  if (auth != null) {
-    xmlhttp.setRequestHeader("Authorization", auth);
-  }
+//   if (auth != null) {
+//     xmlhttp.setRequestHeader("Authorization", auth);
+//   }
   
-  xmlhttp.send(json);
-  return xmlhttp.responseText;
-}
+//   xmlhttp.send(json);
+//   return xmlhttp.responseText;
+// }
 
 function login()
 {
@@ -176,7 +176,7 @@ function removeSNAT() {
   var xmlhttp = new_http_request();
   msg = removeSNATPool;
 
-  var response = delete(xmlhttp, auth, '/axapi/v3/clideploy', msg);
+  var response = post(xmlhttp, auth, '/axapi/v3/clideploy', msg);
   var obj_data = JSON.parse(response);
 
   // out2(obj_data);
@@ -1064,7 +1064,6 @@ let removeSnatPool_v4 = '{ \
     "no ip nat pool snat_JPNTT_v4", \
  ] \
 }';
-
 
 let snatpool_v4 = '{ \
   "pool-list": [ \
