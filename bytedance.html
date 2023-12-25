@@ -37,6 +37,7 @@
     <div class="input">AuthToken : <input type="text" id="token" value="Token String" size="32"></div>
     <input class="button" type="submit " id="login" value="Login">
 
+    <h5 class="h5">SNAT Status       <input class="button" type="submit " id="StatusSNAT" value="SNAT Status"></h5>
     <h5 class="h5">configSNAT       <input class="button" type="submit " id="configSNAT" value="Config SNAT"></h5>
     <h5 class="h5">configSNAT_PO    <input class="button" type="submit " id="configSNAT_PO" value="Config SNAT Port-Overload"></h5>
     <h5 class="h5">configSNAT_RR    <input class="button" type="submit " id="configSNAT_RR" value="Config SNAT IP-RR"></h5>
@@ -238,7 +239,7 @@ text3.style.height = text3.scrollHeight + 'px';
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('login').addEventListener('click', login);
-  document.getElementById('configSlbServer_v4').addEventListener('click', configSlbServer_v4);
+  document.getElementById('statusSNAT').addEventListener('click', statusSNAT);
 
 });
 </script>
