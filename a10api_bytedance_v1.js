@@ -86,7 +86,7 @@ function login()
 function outputMsg(item) {
   output += item["name"] + ' ' +  item["source-nat"] + '\n';
   // console.log(output);
-  // return output;
+  return output;
 }
 
 function statusTemplatePort() {
