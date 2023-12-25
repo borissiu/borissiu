@@ -122,7 +122,7 @@ function bindTemplatePort() {
 
 function outputSNAT(item) {
   output += item["pool-name"] + ' ' + item["start-address"] + ' ' + item["end-address"] + ' ' + item["ip-rr"] + ' ' + item["port-overload"] + '\n'
-  out2(output);
+  // out2(output);
 }
 
 function statusSNAT() {
@@ -132,18 +132,6 @@ function statusSNAT() {
 
   output = 'SNAT Status - ' + new Date() + '\n\n'
   obj_data["pool-list"].forEach(outputSNAT);
-
-  // output += item["pool-name"] + ' ' + item["start-address"] + ' ' + item["end-address"] + ' ' + item["ip-rr"] + ' ' + item["port-overload"] + '\n'
-  // output += obj_data["pool-list"][1]["pool-name"] + ' ' + obj_data["pool-list"][1]["start-address"] + ' ' + obj_data["pool-list"][1]["end-address"] + ' ' + obj_data["pool-list"][1]["ip-rr"] + ' ' + obj_data["pool-list"][1]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][2]["pool-name"] + ' ' + obj_data["pool-list"][2]["start-address"] + ' ' + obj_data["pool-list"][2]["end-address"] + ' ' + obj_data["pool-list"][2]["ip-rr"] + ' ' + obj_data["pool-list"][2]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][3]["pool-name"] + ' ' + obj_data["pool-list"][3]["start-address"] + ' ' + obj_data["pool-list"][3]["end-address"] + ' ' + obj_data["pool-list"][3]["ip-rr"] + ' ' + obj_data["pool-list"][3]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][4]["pool-name"] + ' ' + obj_data["pool-list"][4]["start-address"] + ' ' + obj_data["pool-list"][4]["end-address"] + ' ' + obj_data["pool-list"][4]["ip-rr"] + ' ' + obj_data["pool-list"][4]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][5]["pool-name"] + ' ' + obj_data["pool-list"][5]["start-address"] + ' ' + obj_data["pool-list"][5]["end-address"] + ' ' + obj_data["pool-list"][5]["ip-rr"] + ' ' + obj_data["pool-list"][5]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][6]["pool-name"] + ' ' + obj_data["pool-list"][6]["start-address"] + ' ' + obj_data["pool-list"][6]["end-address"] + ' ' + obj_data["pool-list"][6]["ip-rr"] + ' ' + obj_data["pool-list"][6]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][7]["pool-name"] + ' ' + obj_data["pool-list"][7]["start-address"] + ' ' + obj_data["pool-list"][7]["end-address"] + ' ' + obj_data["pool-list"][7]["ip-rr"] + ' ' + obj_data["pool-list"][7]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][8]["pool-name"] + ' ' + obj_data["pool-list"][8]["start-address"] + ' ' + obj_data["pool-list"][8]["end-address"] + ' ' + obj_data["pool-list"][8]["ip-rr"] + ' ' + obj_data["pool-list"][8]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][9]["pool-name"] + ' ' + obj_data["pool-list"][9]["start-address"] + ' ' + obj_data["pool-list"][9]["end-address"] + ' ' + obj_data["pool-list"][9]["ip-rr"] + ' ' + obj_data["pool-list"][9]["port-overload"] + '\n'
-  // output += obj_data["pool-list"][10]["pool-name"] + ' ' + obj_data["pool-list"][10]["start-address"] + ' ' + obj_data["pool-list"][10]["end-address"] + ' ' + obj_data["pool-list"][10]["ip-rr"] + ' ' + obj_data["pool-list"][10]["port-overload"] + '\n'
 
   out2(output);
 }
