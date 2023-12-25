@@ -160,6 +160,8 @@ function statusSNAT() {
 }
 
 function removeSNAT() {
+  unbindTemplatePort();
+  
   var xmlhttp = new_http_request();
   msg = removeSnatPool_v4;
 
@@ -171,6 +173,8 @@ function removeSNAT() {
 }
 
 function configSNAT() {
+  unbindTemplatePort();
+
   var xmlhttp = new_http_request();
   msg = snatpool_v4;
 
@@ -178,10 +182,13 @@ function configSNAT() {
   var obj_data = JSON.parse(response);
 
   // out2(obj_data);
+  bindTemplatePort();
   statusSNAT();
 }
 
 function configSNAT_PO() {
+  unbindTemplatePort();
+  
   var xmlhttp = new_http_request();
   msg = snatpool_po_v4;
 
@@ -189,10 +196,13 @@ function configSNAT_PO() {
   var obj_data = JSON.parse(response);
 
   // out2(obj_data);
+  bindTemplatePort();
   statusSNAT();
 }
 
 function configSNAT_RR() {
+  unbindTemplatePort();
+  
   var xmlhttp = new_http_request();
   msg = snatpool_rr_v4;
 
@@ -200,10 +210,13 @@ function configSNAT_RR() {
   var obj_data = JSON.parse(response);
 
   // out2(obj_data);
+  bindTemplatePort();
   statusSNAT();
 }
 
 function configSNAT_RR_PO() {
+  unbindTemplatePort();
+  
   var xmlhttp = new_http_request();
   msg = snatpool_rr_po_v4;
 
@@ -211,6 +224,7 @@ function configSNAT_RR_PO() {
   var obj_data = JSON.parse(response);
 
   // out2(obj_data);
+  bindTemplatePort();
   statusSNAT();
 }
 
