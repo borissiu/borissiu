@@ -123,7 +123,7 @@ function statusTemplatePort() {
   // output += obj_data["port-list"][22]["name"] + ' ' + obj_data["port-list"][22]["source-nat"] + '\n'
   // output += obj_data["port-list"][23]["name"] + ' ' + obj_data["port-list"][23]["source-nat"] + '\n'
 
-  out2(output);
+  // out2(output);
 }
 
 function unbindTemplatePort() {
