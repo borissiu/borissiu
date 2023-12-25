@@ -183,7 +183,7 @@ function configSNAT() {
 
 function configSNAT_PO() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4;
+  msg = snatpool_po_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
@@ -1172,9 +1172,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"117.144.84.158", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"ef774866-a009-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Bank_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CM_Dns_v4", \
@@ -1182,9 +1180,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"117.144.84.157", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"21ff4d6a-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_Dns_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CM_v4", \
@@ -1192,9 +1188,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"117.144.84.155", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"588a412c-a006-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CM_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CT_Bank_v4", \
@@ -1202,9 +1196,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"101.230.97.126", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"fbcc474c-a009-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Bank_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CT_Dns_v4", \
@@ -1212,9 +1204,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"101.230.97.125", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"2200b448-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_Dns_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CT_v4", \
@@ -1222,9 +1212,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"101.230.97.123", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"bbadbf5a-a005-11ee-9587-1d4b7257581e", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CT_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CU_Bank_v4", \
@@ -1232,9 +1220,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"211.95.64.158", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"f01eec24-a009-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Bank_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CU_Dns_v4", \
@@ -1242,9 +1228,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"211.95.64.157", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"224683a6-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_Dns_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_CU_v4", \
@@ -1252,9 +1236,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"211.95.64.155", \
       "netmask":"/27", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"d59d8152-a005-11ee-9587-1d4b7257581e", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_CU_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_JPNTT_v4", \
@@ -1262,9 +1244,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"61.213.176.62", \
       "netmask":"/28", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"ad66b67e-a008-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_JPNTT_v4" \
+      "port-overload":1 \
     }, \
     { \
       "pool-name":"snat_PCCW_v4", \
@@ -1272,9 +1252,7 @@ let snatpool_po_v4 = '{ \
       "end-address":"207.176.113.78", \
       "netmask":"/28", \
       "ip-rr":0, \
-      "port-overload":1, \
-      "uuid":"b553ad38-a008-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/ip/nat/pool/snat_PCCW_v4" \
+      "port-overload":1 \
     } \
   ] \
 }';
