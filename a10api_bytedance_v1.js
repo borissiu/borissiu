@@ -303,23 +303,7 @@ let unbindTemplatePortJson = '{ \
   "port-list": [ \
     { \
       "name":"CT_v4", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
       "source-nat":"snat_CU_v4", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91868a4-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CT_v4" \
     }, \
     { \
       "name":"CU_v4", \
