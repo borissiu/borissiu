@@ -84,7 +84,7 @@ function login()
 }
 
 function outputMsg(item) {
-  console.log(output);
+  // console.log(output);
   output += item["name"] + ' ' +  item["source-nat"] + '\n';
   // return output;
   out2(output);
