@@ -115,16 +115,16 @@ function statusTemplatePort() {
   var obj_data = JSON.parse(response);
 
   var output = 'Template Port Status - ' + new Date() + '\n\n'
-  output += obj_data["port-list"][0]["name"] + ' ' + obj_data["port-list"][0]["source-nat"] + '\n'
-  output += obj_data["port-list"][1]["name"] + ' ' + obj_data["port-list"][1]["source-nat"] + '\n'
-  output += obj_data["port-list"][2]["name"] + ' ' + obj_data["port-list"][2]["source-nat"] + '\n'
-  output += obj_data["port-list"][3]["name"] + ' ' + obj_data["port-list"][3]["source-nat"] + '\n'
-  output += obj_data["port-list"][4]["name"] + ' ' + obj_data["port-list"][4]["source-nat"] + '\n'
-  output += obj_data["port-list"][5]["name"] + ' ' + obj_data["port-list"][5]["source-nat"] + '\n'
-  output += obj_data["port-list"][6]["name"] + ' ' + obj_data["port-list"][6]["source-nat"] + '\n'
-  output += obj_data["port-list"][7]["name"] + ' ' + obj_data["port-list"][7]["source-nat"] + '\n'
-  output += obj_data["port-list"][8]["name"] + ' ' + obj_data["port-list"][8]["source-nat"] + '\n'
-  output += obj_data["port-list"][9]["name"] + ' ' + obj_data["port-list"][9]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][0]["name"] + ' ' +  obj_data["port-list"][0]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][1]["name"] + ' ' +  obj_data["port-list"][1]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][2]["name"] + ' ' +  obj_data["port-list"][2]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][3]["name"] + ' ' +  obj_data["port-list"][3]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][4]["name"] + ' ' +  obj_data["port-list"][4]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][5]["name"] + ' ' +  obj_data["port-list"][5]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][6]["name"] + ' ' +  obj_data["port-list"][6]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][7]["name"] + ' ' +  obj_data["port-list"][7]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][8]["name"] + ' ' +  obj_data["port-list"][8]["source-nat"] + '\n'
+  output +=  obj_data["port-list"][9]["name"] + ' ' +  obj_data["port-list"][9]["source-nat"] + '\n'
   output += obj_data["port-list"][10]["name"] + ' ' + obj_data["port-list"][10]["source-nat"] + '\n'
   output += obj_data["port-list"][11]["name"] + ' ' + obj_data["port-list"][11]["source-nat"] + '\n'
   output += obj_data["port-list"][12]["name"] + ' ' + obj_data["port-list"][12]["source-nat"] + '\n'
@@ -139,7 +139,6 @@ function statusTemplatePort() {
   output += obj_data["port-list"][21]["name"] + ' ' + obj_data["port-list"][21]["source-nat"] + '\n'
   output += obj_data["port-list"][22]["name"] + ' ' + obj_data["port-list"][22]["source-nat"] + '\n'
   output += obj_data["port-list"][23]["name"] + ' ' + obj_data["port-list"][23]["source-nat"] + '\n'
-  output += obj_data["port-list"][24]["name"] + ' ' + obj_data["port-list"][24]["source-nat"] + '\n'
 
   out2(output);
 }
