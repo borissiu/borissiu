@@ -131,7 +131,7 @@ function statusSNAT() {
   var obj_data = JSON.parse(response);
 
   output = 'SNAT Status - ' + new Date() + '\n\n'
-  obj_data["pool-list"].forEach(outputTemplatePort);
+  obj_data["pool-list"].forEach(outputSNAT);
 
   // output += item["pool-name"] + ' ' + item["start-address"] + ' ' + item["end-address"] + ' ' + item["ip-rr"] + ' ' + item["port-overload"] + '\n'
   // output += obj_data["pool-list"][1]["pool-name"] + ' ' + obj_data["pool-list"][1]["start-address"] + ' ' + obj_data["pool-list"][1]["end-address"] + ' ' + obj_data["pool-list"][1]["ip-rr"] + ' ' + obj_data["pool-list"][1]["port-overload"] + '\n'
