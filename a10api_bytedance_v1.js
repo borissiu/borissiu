@@ -109,7 +109,7 @@ function statusSNAT() {
   out2(output);
 }
 
-function statusTemplateStatus() {
+function statusTemplatePort() {
   var xmlhttp = new_http_request();
   var response = get(xmlhttp, auth, '/axapi/v3/slb/template/port/');
   var obj_data = JSON.parse(response);
