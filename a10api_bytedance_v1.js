@@ -85,7 +85,6 @@ function login()
 
 function outputTemplatePort(item) {
   output += item["name"] + ' ' +  item["source-nat"] + '\n';
-  out2(output);
 }
 
 function statusTemplatePort() {
@@ -95,6 +94,8 @@ function statusTemplatePort() {
 
   output = 'Template Port Status - ' + new Date() + '\n\n';
   obj_data["port-list"].forEach(outputTemplatePort);
+
+  out2(output);
 }
 
 function unbindTemplatePort() {
@@ -122,7 +123,6 @@ function bindTemplatePort() {
 
 function outputSNAT(item) {
   output += item["pool-name"] + ' ' + item["start-address"] + ' ' + item["end-address"] + ' ' + item["ip-rr"] + ' ' + item["port-overload"] + '\n'
-  // out2(output);
 }
 
 function statusSNAT() {
