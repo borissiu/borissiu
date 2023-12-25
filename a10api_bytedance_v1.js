@@ -105,7 +105,6 @@ function unbindTemplatePort() {
   var response = put(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   statusTemplatePort();
 }
 
@@ -116,7 +115,6 @@ function bindTemplatePort() {
   var response = put(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   statusTemplatePort();
 }
 
@@ -145,7 +143,6 @@ function removeSNAT() {
   var response = post(xmlhttp, auth, '/axapi/v3/clideploy', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(response);
   statusSNAT();
 }
 
@@ -159,7 +156,6 @@ function configSNAT() {
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   bindTemplatePort();
   statusSNAT();
 }
@@ -174,7 +170,6 @@ function configSNAT_PO() {
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   bindTemplatePort();
   statusSNAT();
 }
@@ -189,7 +184,6 @@ function configSNAT_RR() {
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   bindTemplatePort();
   statusSNAT();
 }
@@ -204,7 +198,6 @@ function configSNAT_RR_PO() {
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
 
-  // out2(obj_data);
   bindTemplatePort();
   statusSNAT();
 }
