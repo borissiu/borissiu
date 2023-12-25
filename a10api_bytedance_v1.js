@@ -33,6 +33,19 @@ function get(xmlhttp, auth, url)
   return xmlhttp.responseText;
 }
 
+function put(xmlhttp, auth, url, json)
+{
+  xmlhttp.open("PUT", url, false);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+
+  if (auth != null) {
+    xmlhttp.setRequestHeader("Authorization", auth);
+  }
+  
+  xmlhttp.send(json);
+  return xmlhttp.responseText;
+}
+
 function post(xmlhttp, auth, url, json)
 {
   xmlhttp.open("POST", url, false);
