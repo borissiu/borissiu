@@ -302,188 +302,34 @@ function out3(response)
 let unbindTemplatePortJson = '{ \
   "port-list": [ \
     { \
-      "name":"CT_v4", \
-      "source-nat":"snat_CU_v4", \
+      "name":"CT_v4" \
     }, \
     { \
-      "name":"CU_v4", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_CU_v4", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f9199940-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CU_v4" \
+      "name":"CU_v4" \
     }, \
     { \
-      "name":"CM_v4", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_CM_v4", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91a8e40-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CM_v4" \
+      "name":"CM_v4" \
     }, \
     { \
-      "name":"CT_v6", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_CT_v6", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91b8944-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CT_v6" \
+      "name":"CT_v6" \
     }, \
     { \
-      "name":"CM_v6", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_CM_v6", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91c73cc-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CM_v6" \
+      "name":"CM_v6" \
     }, \
     { \
-      "name":"CU_v6", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_CU_v6", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91d5936-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/CU_v6" \
+      "name":"CU_v6" \
     }, \
     { \
-      "name":"PCCW_v6", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_PCCW_v6", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f91f115e-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/PCCW_v6" \
+      "name":"PCCW_v6" \
     }, \
     { \
-      "name":"JPNTT_v6", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_JPNTT_v6", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f920c5d0-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/JPNTT_v6" \
+      "name":"JPNTT_v6" \
     }, \
     { \
-      "name":"PCCW_v4", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_PCCW_v4", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f9222358-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/PCCW_v4" \
+      "name":"PCCW_v4" \
     }, \
     { \
-      "name":"JPNTT_v4", \
-      "conn-limit":64000000, \
-      "conn-limit-no-logging":0, \
-      "dest-nat":0, \
-      "del-session-on-server-down":0, \
-      "dynamic-member-priority":16, \
-      "decrement":0, \
-      "extended-stats":0, \
-      "no-ssl":0, \
-      "stats-data-action":"stats-data-enable", \
-      "health-check-disable":0, \
-      "inband-health-check":0, \
-      "source-nat":"snat_JPNTT_v4", \
-      "weight":1, \
-      "sub-group":0, \
-      "slow-start":0, \
-      "uuid":"f923bc04-a00a-11ee-aead-000c29bb3222", \
-      "a10-url":"/axapi/v3/slb/template/port/JPNTT_v4" \
+      "name":"JPNTT_v4" \
     }, \
     { \
       "name":"CT_Dns_v4", \
