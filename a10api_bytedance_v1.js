@@ -84,8 +84,8 @@ function login()
 }
 
 function outputMsg(item) {
+  console.log(output);
   output += item["name"] + ' ' +  item["source-nat"] + '\n';
-  // console.log(output);
   return output;
 }
 
@@ -94,8 +94,7 @@ function statusTemplatePort() {
   var response = get(xmlhttp, auth, '/axapi/v3/slb/template/port/');
   var obj_data = JSON.parse(response);
 
-  var output = 'Template Port Status - ' + new Date() + '\n\n';
-  console.log(output);
+  output = 'Template Port Status - ' + new Date() + '\n\n';
   // output += obj_data["port-list"].forEach(outputMsg);
   console.log(obj_data["port-list"].forEach(outputMsg));
   // output +=  obj_data["port-list"][0]["name"] + ' ' +  obj_data["port-list"][0]["source-nat"] + '\n'
