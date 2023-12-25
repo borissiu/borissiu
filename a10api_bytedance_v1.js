@@ -59,19 +59,6 @@ function post(xmlhttp, auth, url, json)
   return xmlhttp.responseText;
 }
 
-// function remove(xmlhttp, auth, url, json)
-// {
-//   xmlhttp.open("DELETE", url, false);
-//   xmlhttp.setRequestHeader("Content-type", "application/json");
-
-//   if (auth != null) {
-//     xmlhttp.setRequestHeader("Authorization", auth);
-//   }
-  
-//   xmlhttp.send(json);
-//   return xmlhttp.responseText;
-// }
-
 function login()
 {
   auth = "";
@@ -196,7 +183,7 @@ function configSNAT() {
 
 function configSNAT_PO() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4_po;
+  msg = snatpool_po_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
@@ -207,7 +194,7 @@ function configSNAT_PO() {
 
 function configSNAT_RR() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4_rr;
+  msg = snatpool_rr_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
@@ -218,7 +205,7 @@ function configSNAT_RR() {
 
 function configSNAT_RR_PO() {
   var xmlhttp = new_http_request();
-  msg = snatpool_v4_rr_po;
+  msg = snatpool_rr_po_v4;
 
   var response = put(xmlhttp, auth, '/axapi/v3/ip/nat/pool', msg);
   var obj_data = JSON.parse(response);
@@ -1177,7 +1164,7 @@ let snatpool_v4 = '{ \
   ] \
 }';
 
-let snatpool_v4_po = '{ \
+let snatpool_po_v4 = '{ \
   "pool-list": [ \
     { \
       "pool-name":"snat_CM_Bank_v4", \
@@ -1292,7 +1279,7 @@ let snatpool_v4_po = '{ \
   ] \
 }';
 
-let snatpool_v4_rr = '{ \
+let snatpool_rr_v4 = '{ \
   "pool-list": [ \
     { \
       "pool-name":"snat_CM_Bank_v4", \
@@ -1407,7 +1394,7 @@ let snatpool_v4_rr = '{ \
   ] \
 }';
 
-let snatpool_v4_rr_po = '{ \
+let snatpool_rr_po_v4 = '{ \
   "pool-list": [ \
     { \
       "pool-name":"snat_CM_Bank_v4", \
