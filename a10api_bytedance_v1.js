@@ -93,7 +93,7 @@ function statusSNAT() {
   var response = get(xmlhttp, auth, '/axapi/v3/ip/nat/pool/');
   var obj_data = JSON.parse(response);
 
-  var output = 'SNAT Status - ' + new Date() + '\n'
+  var output = 'SNAT Status - ' + new Date() + '\n\n'
   output += obj_data["pool-list"][0]["pool-name"] + ' ' + obj_data["pool-list"][0]["start-address"] + ' ' + obj_data["pool-list"][0]["end-address"] + ' ' + obj_data["pool-list"][0]["ip-rr"] + ' ' + obj_data["pool-list"][0]["port-overload"] + '\n'
   output += obj_data["pool-list"][1]["pool-name"] + ' ' + obj_data["pool-list"][1]["start-address"] + ' ' + obj_data["pool-list"][1]["end-address"] + ' ' + obj_data["pool-list"][1]["ip-rr"] + ' ' + obj_data["pool-list"][1]["port-overload"] + '\n'
   output += obj_data["pool-list"][2]["pool-name"] + ' ' + obj_data["pool-list"][2]["start-address"] + ' ' + obj_data["pool-list"][2]["end-address"] + ' ' + obj_data["pool-list"][2]["ip-rr"] + ' ' + obj_data["pool-list"][2]["port-overload"] + '\n'
@@ -105,6 +105,42 @@ function statusSNAT() {
   output += obj_data["pool-list"][8]["pool-name"] + ' ' + obj_data["pool-list"][8]["start-address"] + ' ' + obj_data["pool-list"][8]["end-address"] + ' ' + obj_data["pool-list"][8]["ip-rr"] + ' ' + obj_data["pool-list"][8]["port-overload"] + '\n'
   output += obj_data["pool-list"][9]["pool-name"] + ' ' + obj_data["pool-list"][9]["start-address"] + ' ' + obj_data["pool-list"][9]["end-address"] + ' ' + obj_data["pool-list"][9]["ip-rr"] + ' ' + obj_data["pool-list"][9]["port-overload"] + '\n'
   output += obj_data["pool-list"][10]["pool-name"] + ' ' + obj_data["pool-list"][10]["start-address"] + ' ' + obj_data["pool-list"][10]["end-address"] + ' ' + obj_data["pool-list"][10]["ip-rr"] + ' ' + obj_data["pool-list"][10]["port-overload"] + '\n'
+
+  out2(output);
+}
+
+function statusTemplateStatus() {
+  var xmlhttp = new_http_request();
+  var response = get(xmlhttp, auth, '/axapi/v3/slb/template/port/');
+  var obj_data = JSON.parse(response);
+
+  var output = 'Template Port Status - ' + new Date() + '\n\n'
+  output += obj_data["port-list"][0]["name"] + ' ' + obj_data["port-list"][0]["source-nat"] + '\n'
+  output += obj_data["port-list"][1]["name"] + ' ' + obj_data["port-list"][1]["source-nat"] + '\n'
+  output += obj_data["port-list"][2]["name"] + ' ' + obj_data["port-list"][2]["source-nat"] + '\n'
+  output += obj_data["port-list"][3]["name"] + ' ' + obj_data["port-list"][3]["source-nat"] + '\n'
+  output += obj_data["port-list"][4]["name"] + ' ' + obj_data["port-list"][4]["source-nat"] + '\n'
+  output += obj_data["port-list"][5]["name"] + ' ' + obj_data["port-list"][5]["source-nat"] + '\n'
+  output += obj_data["port-list"][6]["name"] + ' ' + obj_data["port-list"][6]["source-nat"] + '\n'
+  output += obj_data["port-list"][7]["name"] + ' ' + obj_data["port-list"][7]["source-nat"] + '\n'
+  output += obj_data["port-list"][8]["name"] + ' ' + obj_data["port-list"][8]["source-nat"] + '\n'
+  output += obj_data["port-list"][9]["name"] + ' ' + obj_data["port-list"][9]["source-nat"] + '\n'
+  output += obj_data["port-list"][10]["name"] + ' ' + obj_data["port-list"][10]["source-nat"] + '\n'
+  output += obj_data["port-list"][11]["name"] + ' ' + obj_data["port-list"][11]["source-nat"] + '\n'
+  output += obj_data["port-list"][12]["name"] + ' ' + obj_data["port-list"][12]["source-nat"] + '\n'
+  output += obj_data["port-list"][13]["name"] + ' ' + obj_data["port-list"][13]["source-nat"] + '\n'
+  output += obj_data["port-list"][14]["name"] + ' ' + obj_data["port-list"][14]["source-nat"] + '\n'
+  output += obj_data["port-list"][15]["name"] + ' ' + obj_data["port-list"][15]["source-nat"] + '\n'
+  output += obj_data["port-list"][16]["name"] + ' ' + obj_data["port-list"][16]["source-nat"] + '\n'
+  output += obj_data["port-list"][17]["name"] + ' ' + obj_data["port-list"][17]["source-nat"] + '\n'
+  output += obj_data["port-list"][18]["name"] + ' ' + obj_data["port-list"][18]["source-nat"] + '\n'
+  output += obj_data["port-list"][19]["name"] + ' ' + obj_data["port-list"][19]["source-nat"] + '\n'
+  output += obj_data["port-list"][20]["name"] + ' ' + obj_data["port-list"][20]["source-nat"] + '\n'
+  output += obj_data["port-list"][21]["name"] + ' ' + obj_data["port-list"][21]["source-nat"] + '\n'
+  output += obj_data["port-list"][22]["name"] + ' ' + obj_data["port-list"][22]["source-nat"] + '\n'
+  output += obj_data["port-list"][23]["name"] + ' ' + obj_data["port-list"][23]["source-nat"] + '\n'
+  output += obj_data["port-list"][24]["name"] + ' ' + obj_data["port-list"][24]["source-nat"] + '\n'
+
   out2(output);
 }
 
