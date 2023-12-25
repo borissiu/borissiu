@@ -227,9 +227,6 @@ function configSNAT_RR_PO() {
   statusSNAT();
 }
 
-
-
-
 function out2(response)
 {
   output2 = document.getElementById('output2');
@@ -1061,7 +1058,7 @@ let removeSnatPool_v4 = '{ \
     "no ip nat pool snat_CT_v4", \
     "no ip nat pool snat_CU_v4", \
     "no ip nat pool snat_PCCW_v4", \
-    "no ip nat pool snat_JPNTT_v4", \
+    "no ip nat pool snat_JPNTT_v4" \
  ] \
 }';
 
