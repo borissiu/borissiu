@@ -65,9 +65,9 @@ function login()
   // json_response = JSON.parse(response);
   // device_state = json_response["vrid"]["oper"]["state"];
 
-  // response = get(xmlhttp, auth, "/axapi/v3/hostname");
-  // json_response = JSON.parse(response);
-  // host_id = json_response["hostname"]["value"];
+  response = get(xmlhttp, auth, "/axapi/v3/hostname");
+  json_response = JSON.parse(response);
+  host_id = json_response["hostname"]["value"];
 
   // response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/partition-vrid-all-status/oper");
   // var json_response = JSON.parse(response);
@@ -84,7 +84,8 @@ function login()
   // }
 
   const UIdeviceStatus = document.querySelector('#deviceStatus');
-  UIdeviceStatus.value = "Hostname: " + host_id + ' (' + device_state + '), User Logon: ' + Date();
+  // UIdeviceStatus.value = "Hostname: " + host_id + ' (' + device_state + '), User Logon: ' + Date();
+  UIdeviceStatus.value = "Hostname: " + host_id + ', User Logon: ' + Date();
 }
 
 function buttonA()
