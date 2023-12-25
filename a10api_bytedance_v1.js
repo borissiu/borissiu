@@ -286,7 +286,7 @@ function out3(response)
   text3.style.height = text3.scrollHeight + 'px';
 }
 
-let bindTemplatePortJson = '{ \
+let unbindTemplatePortJson = '{ \
   "port-list": [ \
     { \
       "name":"CT_v4", \
