@@ -7,8 +7,8 @@
   <title>A10-Demo</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
-  <!-- <script src="https://faq.a10hk.com/a10api_hactl_v1.js"></script> -->
-  <script src=a10api_bytedance_v1.js></script>
+  <script src="https://faq.a10hk.com/a10api_bytedance_v1.js"></script>
+  <!-- <script src=a10api_bytedance_v1.js></script> -->
 </head>
 
 <style>
@@ -237,6 +237,7 @@ text3.style.width = 60 + 'em';
 text3.style.height = text3.scrollHeight + 'px';
 
 document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('login').addEventListener('click', login);
   document.getElementById('configSlbServer_v4').addEventListener('click', configSlbServer_v4);
 
 });

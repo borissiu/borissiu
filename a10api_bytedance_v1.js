@@ -61,27 +61,27 @@ function login()
   var token = document.getElementById("token");
   token.setAttribute("placeholder", auth);
 
-  response = get(xmlhttp, auth, '/axapi/v3/vrrp-a/vrid/0/oper');
-  json_response = JSON.parse(response);
-  device_state = json_response["vrid"]["oper"]["state"];
+  // response = get(xmlhttp, auth, '/axapi/v3/vrrp-a/vrid/0/oper');
+  // json_response = JSON.parse(response);
+  // device_state = json_response["vrid"]["oper"]["state"];
 
-  response = get(xmlhttp, auth, "/axapi/v3/hostname");
-  json_response = JSON.parse(response);
-  host_id = json_response["hostname"]["value"];
+  // response = get(xmlhttp, auth, "/axapi/v3/hostname");
+  // json_response = JSON.parse(response);
+  // host_id = json_response["hostname"]["value"];
 
-  response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/partition-vrid-all-status/oper");
-  var json_response = JSON.parse(response);
-  var local_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["local_device_ID"];
-  var active_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["active_device_id"];
+  // response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/partition-vrid-all-status/oper");
+  // var json_response = JSON.parse(response);
+  // var local_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["local_device_ID"];
+  // var active_device_id = json_response["partition-vrid-all-status"]["oper"]["all-partition-list"][0]["active_device_id"];
 
-  response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/detail/oper");
-  var json_response = JSON.parse(response);
-  peer_ip = json_response["detail"]["oper"]["peer_info_list"][0]["peer_ip"];
+  // response = get(xmlhttp, auth, "/axapi/v3/vrrp-a/detail/oper");
+  // var json_response = JSON.parse(response);
+  // peer_ip = json_response["detail"]["oper"]["peer_info_list"][0]["peer_ip"];
 
-  if ( local_device_id != active_device_id ) {
-    alert("This is Standby Device, let's connect to Active device (" + peer_ip + ").");
-    location.href = 'https://' + peer_ip + '/a10_l_v1.html';
-  }
+  // if ( local_device_id != active_device_id ) {
+  //   alert("This is Standby Device, let's connect to Active device (" + peer_ip + ").");
+  //   location.href = 'https://' + peer_ip + '/a10_l_v1.html';
+  // }
 
   const UIdeviceStatus = document.querySelector('#deviceStatus');
   UIdeviceStatus.value = "Hostname: " + host_id + ' (' + device_state + '), User Logon: ' + Date();
