@@ -1,6 +1,18 @@
 let hostname = "Undefine"; haStatus = "Undefine"; peer_ip = '';
 let auth = "Undefine"; response = "";
 
+function configSlbServer_v4()
+{
+  console.log("Hi");
+  //console.log(document.getElementById("table1"));
+  var table = document.getElementById("table1");
+  var r=0;
+  while(row=table.rows[r++])
+  {
+    console.log(row.cells[0]);
+  }
+}
+
 function new_http_request()
 {
   if (auth == "Undefine") {

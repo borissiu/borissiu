@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cache-control" content="no-cache"/>
+  <title>A10-Demo</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+  <!-- <script src="https://faq.a10hk.com/a10api_hactl_v1.js"></script> -->
+  <script src=a10api_bytedance_v1.js></script>
+</head>
+
+<style>
+  h1, h2, h3, h4, h5, h6 {
+    margin-top:0px; margin-bottom:0px;
+  }
+  .container {
+    margin: 0px; padding: 1px;
+  }
+  .button {
+    background-color: pink; width: 300px; height: 30px;
+  }
+  .notes {
+    font-size: 13px; font-style: italic;
+  }
+
+  table.tb { width:800px; border-collapse: collapse; }
+  .tb th, .tb td { border: solid 1px #777; padding: 5px; }
+  .tb th {background-color: lightblue; }
+</style>
+
+<body>
+  <div class="container">
+    <div class="input">Username : <input type="text" id="username" value="admin" size="32"></div>
+    <div class="input">Password : <input type="password" id="password" value="a10" size="32"></div>
+    <div class="input">AuthToken : <input type="text" id="token" value="Token String" size="32"></div>
+    <input class="button" type="submit " id="login" value="Login">
+
+    <h5 class="h5">configSNAT       <input class="button" type="submit " id="configSNAT" value="Config SNAT"></h5>
+    <h5 class="h5">configSNAT_PO    <input class="button" type="submit " id="configSNAT_PO" value="Config SNAT Port-Overload"></h5>
+    <h5 class="h5">configSNAT_RR    <input class="button" type="submit " id="configSNAT_RR" value="Config SNAT IP-RR"></h5>
+    <h5 class="h5">configSNAT_RR_PO <input class="button" type="submit " id="configSNAT_RR_PO" value="Config SNAT IP-RR Port-Overload"></h5>
+    <hr>
+    <h5 class="h5">ISP Info (IPv4) <input class="button" type="submit " id="configSlbServer_v4" value="Config Slb Server IPv4"></h5>
+    <table class="tb" id="table1">
+      <tr>
+        <th>ISP Name</th>
+        <th>VE Number</th>
+        <th>IP</th>
+        <th>Weight</th>
+        <th>Health Check</th>
+        <th>Ext Program</th>
+        <th>Health Check IP1</th>
+        <th>Health Check IP2</th>
+        <th>Health Check Baidu/DNS</th>
+        <th>Health Check DNS</th>
+        <th>Health Check DNS</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="1r1_ispName" value="CT_v4" size="10"></td>  
+        <td><input type="text" id="1r1_veNumber" value="ve111" size="10"></td>  
+        <td><input type="text" id="1r1_IP" value="100.100.100.100" size="25"></td>  
+        <td><input type="text" id="1r1_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="1r1_hm" value="hm_ct_v4" size="12"></td>  
+        <td><input type="text" id="1r1_hm_ext" value="hm_ext_v4" size="12"></td>  
+        <td><input type="text" id="1r1_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r1_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r1_hm_3" value="220.181.38.150" size="25"></td>  
+        <td><input type="text" id="1r1_hm_4" value="202.96.199.133" size="25"></td>  
+        <td><input type="text" id="1r1_hm_5" value="114.114.114.114" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="1r2_ispName" value="CU_v4" size="10"></td>  
+        <td><input type="text" id="1r2_veNumber" value="ve222" size="10"></td>  
+        <td><input type="text" id="1r2_IP" value="100.100.100.100" size="25"></td>  
+        <td><input type="text" id="1r2_Weight" value="2" size="4"></td>  
+        <td><input type="text" id="1r2_hm" value="hm_cu_v4" size="12"></td>  
+        <td><input type="text" id="1r2_hm_ext" value="hm_ext_v4" size="12"></td>  
+        <td><input type="text" id="1r2_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r2_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r2_hm_3" value="110.242.68.3" size="25"></td>  
+        <td><input type="text" id="1r2_hm_4" value="202.106.196.115" size="25"></td>  
+        <td><input type="text" id="1r2_hm_5" value="114.114.114.114" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="1r3_ispName" value="CM_v4" size="10"></td>  
+        <td><input type="text" id="1r3_veNumber" value="ve333" size="10"></td>  
+        <td><input type="text" id="1r3_IP" value="100.100.100.100" size="25"></td>  
+        <td><input type="text" id="1r3_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="1r3_hm" value="hm_ct_v4" size="12"></td>  
+        <td><input type="text" id="1r3_hm_ext" value="hm_ext_v4" size="12"></td>  
+        <td><input type="text" id="1r3_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r3_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r3_hm_3" value="182.61.200.6" size="25"></td>  
+        <td><input type="text" id="1r3_hm_4" value="211.138.30.66" size="25"></td>  
+        <td><input type="text" id="1r3_hm_5" value="114.114.114.114" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="1r4_ispName" value="JPNTT_v4" size="10"></td>  
+        <td><input type="text" id="1r4_veNumber" value="ve444" size="10"></td>  
+        <td><input type="text" id="1r4_IP" value="100.100.100.100" size="25"></td>  
+        <td><input type="text" id="1r4_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="1r4_hm" value="hm_jpntt_v4" size="12"></td>  
+        <td><input type="text" id="1r4_hm_ext" value="hm_ext_v4" size="12"></td>  
+        <td><input type="text" id="1r4_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r4_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r4_hm_3" value="27.34.160.11" size="25"></td>  
+        <td><input type="text" id="1r4_hm_4" value="8.8.4.4" size="25"></td>  
+        <td><input type="text" id="1r4_hm_5" value="8.8.8.8" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="1r5_ispName" value="PCCW_v4" size="10"></td>  
+        <td><input type="text" id="1r5_veNumber" value="ve555" size="10"></td>  
+        <td><input type="text" id="1r5_IP" value="100.100.100.100" size="25"></td>  
+        <td><input type="text" id="1r5_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="1r5_hm" value="hm_pccw_v4" size="12"></td>  
+        <td><input type="text" id="1r5_hm_ext" value="hm_ext_v4" size="12"></td>  
+        <td><input type="text" id="1r5_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r5_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="1r5_hm_3" value="119.75.32.114" size="25"></td>  
+        <td><input type="text" id="1r5_hm_4" value="8.8.4.4" size="25"></td>  
+        <td><input type="text" id="1r5_hm_5" value="8.8.8.8" size="25"></td>  
+      </tr>
+    </table>
+
+    <h5 class="h5">ISP Info (IPv6) <input class="button" type="submit " id="configSlbServer_v6" value="Config Slb Server IPv6"></h5>
+    <table class="tb">
+      <tr>
+        <th>ISP Name</th>
+        <th>VE Number</th>
+        <th>IP</th>
+        <th>Weight</th>
+        <th>Health Check</th>
+        <th>Ext Program</th>
+        <th>Health Check IP1</th>
+        <th>Health Check IP2</th>
+        <th>Health Check IP3</th>
+        <th>Health Check IP4</th>
+        <th>Health Check IP5</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="2r1_ispName" value="CT_v6" size="10"></td>  
+        <td><input type="text" id="2r1_veNumber" value="ve111" size="10"></td>  
+        <td><input type="text" id="2r1_IP" value="240e:604:600:6c04::1" size="25"></td>  
+        <td><input type="text" id="2r1_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="2r1_hm" value="hm_ct_v6" size="12"></td>  
+        <td><input type="text" id="2r1_hm_ext" value="hm_ext_v6" size="12"></td>  
+        <td><input type="text" id="2r1_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r1_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r1_hm_3" value="2400:3200::1" size="25"></td>  
+        <td><input type="text" id="2r1_hm_4" value="" size="25"></td>  
+        <td><input type="text" id="2r1_hm_5" value="" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="2r2_ispName" value="CU_v6" size="10"></td>  
+        <td><input type="text" id="2r2_veNumber" value="ve222" size="10"></td>  
+        <td><input type="text" id="2r2_IP" value="2408:8606:1800:504::1" size="25"></td>  
+        <td><input type="text" id="2r2_Weight" value="2" size="4"></td>  
+        <td><input type="text" id="2r2_hm" value="hm_cu_v6" size="12"></td>  
+        <td><input type="text" id="2r2_hm_ext" value="hm_ext_v6" size="12"></td>  
+        <td><input type="text" id="2r2_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r2_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r2_hm_3" value="2400:3200::1" size="25"></td>  
+        <td><input type="text" id="2r2_hm_4" value="" size="25"></td>  
+        <td><input type="text" id="2r2_hm_5" value="" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="2r3_ispName" value="CM_v6" size="10"></td>  
+        <td><input type="text" id="2r3_veNumber" value="ve333" size="10"></td>  
+        <td><input type="text" id="2r3_IP" value="2409:8700:32:b04::1" size="25"></td>  
+        <td><input type="text" id="2r3_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="2r3_hm" value="hm_ct_v6" size="12"></td>  
+        <td><input type="text" id="2r3_hm_ext" value="hm_ext_v6" size="12"></td>  
+        <td><input type="text" id="2r3_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r3_hm_2" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r3_hm_3" value="2400:3200::1" size="25"></td>  
+        <td><input type="text" id="2r3_hm_4" value="" size="25"></td>  
+        <td><input type="text" id="2r3_hm_5" value="" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="2r4_ispName" value="JPNTT_v6" size="10"></td>  
+        <td><input type="text" id="2r4_veNumber" value="ve444" size="10"></td>  
+        <td><input type="text" id="2r4_IP" value="2001:218:2001:0:2000::1" size="25"></td>  
+        <td><input type="text" id="2r4_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="2r4_hm" value="hm_jpntt_v6" size="12"></td>  
+        <td><input type="text" id="2r4_hm_ext" value="hm_ext_v6" size="12"></td>  
+        <td><input type="text" id="2r4_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r4_hm_2" value="2001:4860:4860::8844" size="25"></td>  
+        <td><input type="text" id="2r4_hm_3" value="2001:4860:4860::8888" size="25"></td>  
+        <td><input type="text" id="2r4_hm_4" value="" size="25"></td>  
+        <td><input type="text" id="2r4_hm_5" value="" size="25"></td>  
+      </tr>
+      <tr>
+        <td><input type="text" id="2r5_ispName" value="PCCW_v6" size="10"></td>  
+        <td><input type="text" id="2r5_veNumber" value="ve555" size="10"></td>  
+        <td><input type="text" id="2r5_IP" value=" 2400:8800:1f02:83:5000::1" size="25"></td>  
+        <td><input type="text" id="2r5_Weight" value="1" size="4"></td>  
+        <td><input type="text" id="2r5_hm" value="hm_pccw_v6" size="12"></td>  
+        <td><input type="text" id="2r5_hm_ext" value="hm_ext_v6" size="12"></td>  
+        <td><input type="text" id="2r5_hm_1" value="200.200.200.200" size="25"></td>  
+        <td><input type="text" id="2r5_hm_2" value="2001:4860:4860::8844" size="25"></td>  
+        <td><input type="text" id="2r5_hm_3" value="2001:4860:4860::8888" size="25"></td>  
+        <td><input type="text" id="2r5_hm_4" value="" size="25"></td>  
+        <td><input type="text" id="2r5_hm_5" value="" size="25"></td>  
+      </tr>
+    </table>
+    
+
+
+    <div>Device Status :<input type="text" id="deviceStatus" size="96"></div>
+    <div>Operation Results :</div>
+    <div id="output2"></div>
+    <div>Configuration Sync :</div>
+    <div id="output3"></div>
+    
+    <div class="notes ">PS : Hactl PoC, comments are welcome.</div>
+</div>
+
+<script nonce="static-page">
+console.log(document.getElementById("2r5_hm_3").value);
+
+"use strict";
+
+var msg = ""
+
+let output2 = document.getElementById('output2');
+let text2 = document.createElement('textarea');
+text2.appendChild(document.createTextNode(msg));
+output2.appendChild(text2);
+text2.style.width = 60 + 'em';
+text2.style.height = text2.scrollHeight + 'px';
+
+let output3 = document.getElementById('output3');
+let text3 = document.createElement('textarea');
+text3.appendChild(document.createTextNode(msg));
+output3.appendChild(text3);
+text3.style.width = 60 + 'em';
+text3.style.height = text3.scrollHeight + 'px';
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('configSlbServer_v4').addEventListener('click', configSlbServer_v4);
+
+});
+</script>
+
+</body>
+</html>
