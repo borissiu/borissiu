@@ -59,6 +59,19 @@ function post(xmlhttp, auth, url, json)
   return xmlhttp.responseText;
 }
 
+function remove(xmlhttp, auth, url, json)
+{
+  xmlhttp.open("DELETE", url, false);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+
+  if (auth != null) {
+    xmlhttp.setRequestHeader("Authorization", auth);
+  }
+  
+  xmlhttp.send(json);
+  return xmlhttp.responseText;
+}
+
 function login()
 {
   auth = "";
@@ -157,6 +170,17 @@ function statusSNAT() {
   output += obj_data["pool-list"][10]["pool-name"] + ' ' + obj_data["pool-list"][10]["start-address"] + ' ' + obj_data["pool-list"][10]["end-address"] + ' ' + obj_data["pool-list"][10]["ip-rr"] + ' ' + obj_data["pool-list"][10]["port-overload"] + '\n'
 
   out2(output);
+}
+
+function removeSNAT() {
+  var xmlhttp = new_http_request();
+  msg = removeSNATPool;
+
+  var response = delete(xmlhttp, auth, '/axapi/v3/clideploy', msg);
+  var obj_data = JSON.parse(response);
+
+  // out2(obj_data);
+  statusSNAT();
 }
 
 function configSNAT() {
@@ -1029,6 +1053,18 @@ let bindTemplatePortJson = '{ \
     } \
   ] \
 }'; 
+
+
+let removeSnatPool_v4 = '{ \
+  "commandList" : [ \
+    "no ip nat pool snat_CM_v4", \
+    "no ip nat pool snat_CT_v4", \
+    "no ip nat pool snat_CU_v4", \
+    "no ip nat pool snat_PCCW_v4", \
+    "no ip nat pool snat_JPNTT_v4", \
+ ] \
+}';
+
 
 let snatpool_v4 = '{ \
   "pool-list": [ \
