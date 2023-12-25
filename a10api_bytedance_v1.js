@@ -86,7 +86,8 @@ function login()
 function outputMsg(item) {
   console.log(output);
   output += item["name"] + ' ' +  item["source-nat"] + '\n';
-  return output;
+  // return output;
+  out2(output);
 }
 
 function statusTemplatePort() {
@@ -96,7 +97,7 @@ function statusTemplatePort() {
 
   output = 'Template Port Status - ' + new Date() + '\n\n';
   // output += obj_data["port-list"].forEach(outputMsg);
-  console.log(obj_data["port-list"].forEach(outputMsg));
+  // console.log(obj_data["port-list"].forEach(outputMsg));
   // output +=  obj_data["port-list"][0]["name"] + ' ' +  obj_data["port-list"][0]["source-nat"] + '\n'
   // output +=  obj_data["port-list"][1]["name"] + ' ' +  obj_data["port-list"][1]["source-nat"] + '\n'
   // output +=  obj_data["port-list"][2]["name"] + ' ' +  obj_data["port-list"][2]["source-nat"] + '\n'
