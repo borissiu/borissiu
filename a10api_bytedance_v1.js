@@ -145,7 +145,7 @@ function statusTemplatePort() {
 
 function unbindTemplatePort() {
   var xmlhttp = new_http_request();
-  msg = unbindTemplatePort;
+  msg = unbindTemplatePortJson;
 
   var response = post(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
@@ -155,7 +155,7 @@ function unbindTemplatePort() {
 
 function bindTemplatePort() {
   var xmlhttp = new_http_request();
-  msg = bindTemplatePort;
+  msg = bindTemplatePortJson;
 
   var response = post(xmlhttp, auth, '/axapi/v3/slb/template/port/', msg);
   var obj_data = JSON.parse(response);
@@ -286,7 +286,7 @@ function out3(response)
   text3.style.height = text3.scrollHeight + 'px';
 }
 
-let bindTemplatePort = '{ \
+let bindTemplatePortJson = '{ \
   "port-list": [ \
     { \
       "name":"CT_v4", \
@@ -771,7 +771,7 @@ let bindTemplatePort = '{ \
   ] \
 }'; 
 
-let bindTemplatePort = '{ \
+let bindTemplatePortJson = '{ \
   "port-list": [ \
     { \
       "name":"CT_v4", \
