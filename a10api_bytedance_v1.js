@@ -174,6 +174,7 @@ function removeSNAT() {
 
 function configSNAT() {
   unbindTemplatePort();
+  removeSNAT();
 
   var xmlhttp = new_http_request();
   msg = snatpool_v4;
@@ -188,6 +189,7 @@ function configSNAT() {
 
 function configSNAT_PO() {
   unbindTemplatePort();
+  removeSNAT();
   
   var xmlhttp = new_http_request();
   msg = snatpool_po_v4;
@@ -202,6 +204,7 @@ function configSNAT_PO() {
 
 function configSNAT_RR() {
   unbindTemplatePort();
+  removeSNAT();
   
   var xmlhttp = new_http_request();
   msg = snatpool_rr_v4;
@@ -216,6 +219,7 @@ function configSNAT_RR() {
 
 function configSNAT_RR_PO() {
   unbindTemplatePort();
+  removeSNAT();
   
   var xmlhttp = new_http_request();
   msg = snatpool_rr_po_v4;
