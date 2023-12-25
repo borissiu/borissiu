@@ -96,7 +96,7 @@ function statusTemplatePort() {
   var obj_data = JSON.parse(response);
 
   output = 'Template Port Status - ' + new Date() + '\n\n';
-  // output += obj_data["port-list"].forEach(outputMsg);
+  output += obj_data["port-list"].forEach(outputMsg);
   // console.log(obj_data["port-list"].forEach(outputMsg));
   // output +=  obj_data["port-list"][0]["name"] + ' ' +  obj_data["port-list"][0]["source-nat"] + '\n'
   // output +=  obj_data["port-list"][1]["name"] + ' ' +  obj_data["port-list"][1]["source-nat"] + '\n'
