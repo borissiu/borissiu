@@ -1,5 +1,6 @@
 let hostname = "Undefine"; haStatus = "Undefine"; peer_ip = '';
 let auth = "Undefine"; response = "";
+let output = "";
 
 function configSlbServer_v4()
 {
